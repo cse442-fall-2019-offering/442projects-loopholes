@@ -35,6 +35,7 @@ Leaflets and posters are scattered all over campus-- from tables, to walls, to l
 Online bulletin board
 
 **Purpose:**
+
 Upload and display posters/announcements for events or organizations I am involved in
 Find organizations or activities that appeal to me by searching for posters
 Vote for posters of organizations or events I promote
@@ -53,9 +54,11 @@ Vote for posters of organizations or events I promote
 Our project’s typical user is a UB college student. The student may want to get involved in campus extracurriculars, or is already involved. 
 
 **First Scenario: Student is involved**
+
 This user has an event or organization they want to advertise on campus. The student would use UBulletin to upload an announcement or poster for their event or organization, advertising to the other users of UBulletin. If they know what they want to advertise, but don’t have a poster, the student can use one of UBulletin’s templates to create one. The student can add tags to their creation so it may be easily found by other users. The student may also vote for the posters of the organizations or events they are involved in.
 
 **Second Scenario: Student is not involved**
+
 This user wants to find a campus event or organization that piques their interest. The student would visit UBulletin to see all of the posters or announcements uploaded for the events and organizations on campus. If what they seek is not in the immediate top results (most popular, most recent), the student can utilize UBulletin’s search function and tagging system for more tailored results. If they support an event or organization, the student may vote for that event or organization’s poster.
 
 
