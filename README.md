@@ -63,7 +63,7 @@ This user wants to find a campus event or organization that piques their interes
 
 **Stack**
 | Purpose | Language |
-| --- | --- |
+|---|---|
 | front-end | React.js |
 | back-end | Python | 
 
