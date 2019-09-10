@@ -63,7 +63,10 @@ This user wants to find a campus event or organization that piques their interes
 
 **Stack**
 | Purpose | Language |
-|---|---|
+| --- | --- |
 | front-end | React.js |
 | back-end | Python | 
+
+**Figma Mockup**
+https://www.figma.com/file/xtExD4Tu7TnNEPZ8jSBlQP/CSE-442-Team-Loopholes?node-id=0%3A1 
 
