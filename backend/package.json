@@ -1,0 +1,8 @@
+{
+  "name": "ubulletin-backend",
+  "version": "1.0.0",
+  "description": "Backend component of the UBulletin web app.",
+  "main": "index.js",
+  "repository": "https://github.com/cse442-fall-2019-offering/442projects-loopholes",
+  "author": "Hans Bas, Supratik Neupane"
+}
