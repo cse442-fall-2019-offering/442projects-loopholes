@@ -1,0 +1,16 @@
+{
+  "name": "ubulletin-backend",
+  "version": "1.0.0",
+  "description": "Backend component of the UBulletin web app.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "ENVIRONMENT=dev nodemon src/server.ts"
+  },
+  "repository": "https://github.com/cse442-fall-2019-offering/442projects-loopholes",
+  "author": "Hans Bas, Supratik Neupane",
+  "devDependencies": {
+    "nodemon": "^1.19.2",
+    "typescript": "^3.6.3"
+  }
+}
