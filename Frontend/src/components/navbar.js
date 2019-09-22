@@ -1,5 +1,6 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
 class navigationBar extends React.Component {
     constructor(props) {
@@ -11,8 +12,12 @@ class navigationBar extends React.Component {
     render() {
         return(
             <div>
-                <Navbar bg="light">
-                    <Navbar.Brand href="#home">Brand link</Navbar.Brand>
+                <Navbar bg="dark" variant="dark">
+                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                    <Nav className="mr-auto">
+                        <Nav.Link href="#home">Home</Nav.Link>
+                        <Nav.Link href="#create">Features</Nav.Link>
+                    </Nav>
                 </Navbar>
             </div>
         );

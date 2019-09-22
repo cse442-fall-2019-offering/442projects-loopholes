@@ -8,6 +8,7 @@ import './components/searchbar.js'
 import SearchBar from "./components/searchbar.js"
 
 function App() {
+<<<<<<< HEAD
   return (
       <div>
         <NavigationBar />
@@ -15,6 +16,30 @@ function App() {
       </div>
   )
 }
+=======
+    return (
+        <navigationBar> </navigationBar>
+    )
+  }
+/*  return (
+    <div className="App">
+      <header className="App-header">
+
+        <p>
+          UBulletin
+        </p>
+        <button className="button-prop">
+
+        </button>
+
+        <button className="button-prop">
+
+        </button>
+
+      </header>
+    </div>
+  );*/
+>>>>>>> Added the CDN style sheet and added the Nav import for the navbar #22
 
 export default App;
 
