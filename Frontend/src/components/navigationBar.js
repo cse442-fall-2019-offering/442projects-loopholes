@@ -11,7 +11,7 @@ class navigationBar extends React.Component {
     }
     render() {
         return(
-            <div>
+            <div className="NavigationBar">
                 <Navbar bg="dark" variant="dark">
                     <Navbar.Brand href="#home">Navbar</Navbar.Brand>
                     <Nav className="mr-auto">
@@ -23,4 +23,5 @@ class navigationBar extends React.Component {
         );
     }
 }
+
 export default navigationBar;
