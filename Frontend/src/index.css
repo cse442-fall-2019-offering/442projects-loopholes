@@ -1,10 +1,27 @@
+/*
+
+Style Guide for UBuletin
+
+Colors:
+  #2b4162 blue
+  #386f71 teal
+  #FFFCF9 off-white
+  #DDFFD9 green
+  #FF6f61 coral
+
+Font:
+  Roboto (to use: font-family: 'Roboto', sans-serif;)
+
+Font Weights:
+  300 light
+  400 regular
+  700 bold
+
+ */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
 }
 
 code {
@@ -14,4 +31,12 @@ code {
 
 .SearchBar {
     background-color: #FF6f61;
+}
+
+.NavigationBar {
+  background-color: #2B4162;
+}
+
+#nav-link {
+  color: #FFFFFF;
 }

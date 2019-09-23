@@ -11,12 +11,12 @@ class navigationBar extends React.Component {
     }
     render() {
         return(
-            <div className="NavigationBar">
-                <Navbar bg="dark" variant="dark">
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+            <div>
+                <Navbar sticky="top" expand="lg" className="NavigationBar">
+                    <Navbar.Brand href="#home">UBulleitin</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#create">Features</Nav.Link>
+                        <Nav.Link className="NavigationBarLink" href="#home">Home</Nav.Link>
+                        <Nav.Link className="NavigationBarLink" href="#create">Features</Nav.Link>
                     </Nav>
                 </Navbar>
             </div>
