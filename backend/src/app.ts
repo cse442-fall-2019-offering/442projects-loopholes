@@ -10,6 +10,11 @@ export default class App {
     this.app = express();
   }
 
+  /**
+   * Sets up Express backend application and returns it
+   *
+   * @returns An initialized backend Express application
+   */
   public async run(): Promise<App> {
     this.setupMiddleware();
 
@@ -20,17 +25,26 @@ export default class App {
     return this;
   }
 
+  /**
+   * Sets up middleware for the Express application
+   */
   private setupMiddleware(): void {
-    this.app.use(bodyParser.json());
+    this.app.use(bodyParser.json()); // bodyParser is needed in order to parse incoming JSON request bodies
   }
 
+  /**
+   * Sets up REST endpoints
+   *
+   * @param internalController Controller that stores functions that handle incoming requests that deal with the application
+   * @param firebaseTestController Controller that stores functions that handle incoming requests that deal with Firebase
+   */
   private setupRoutes(
     internalController: InternalController,
     firebaseTestController: FirebaseTestController
   ): void {
     this.app.route("/").get(internalController.root);
     this.app
-      .route("/firebaseTestEndpoint")
+      .route("/firebaseTestPostEndpoint")
       .post(firebaseTestController.insertJsonBodyToFirebaseDatabase);
   }
 }
