@@ -43,8 +43,13 @@ export default class App {
     firebaseTestController: FirebaseTestController
   ): void {
     this.app.route("/").get(internalController.root);
+    // tests post request to Firebase from the backend
     this.app
       .route("/firebaseTestPostEndpoint")
       .post(firebaseTestController.insertJsonBodyToFirebaseDatabase);
+    // tests get request to Firebase from the backend
+    this.app
+      .route("/firebaseTestFetchEndpoint")
+      .get(firebaseTestController.fetchJsonBodyFromFirebaseDatabase);
   }
 }
