@@ -1,26 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import NavigationBar from "./components/navigationBar.js";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-
-        <p>
-          UBulletin
-        </p>
-        <button className="button-prop">
-
-        </button>
-
-        <button className="button-prop">
-
-        </button>
-
-      </header>
-    </div>
-  );
-}
-
+    return (
+        <div>
+          <NavigationBar/>
+        </div>
+    )
+  }
 export default App;
