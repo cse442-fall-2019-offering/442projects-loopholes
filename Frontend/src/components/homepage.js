@@ -17,13 +17,13 @@ class homePage extends React.Component {
 <br></br>
 <CardColumns>
   <Card border="primary" bg="light" text="dark">
-    <Card.Img variant="top" src="/testimages/internationalteatimeposter.png" />
+    <Card.Img variant="top" src="https://calendarmedia.blob.core.windows.net/assets/cfcab72d-b7b1-442d-bd2d-25097794861c.jpg" />
     <Card.Body>
       <Card.Title>International Tea Time
             <br></br>
             <br></br>
             <small>
-                <div className="font-weight-bold">Date:</div> September 24th
+                <div className="font-weight-bold">Date:</div> September 25th
                 <br></br>
                 <br></br>
                 <div className="font-weight-bold">Time:</div> 5:00PM EDT
@@ -41,13 +41,13 @@ class homePage extends React.Component {
     </Card.Footer>
   </Card>
 <Card border="primary" bg="light" text="dark">
-    <Card.Img variant="top" src="internationalteatimeposter.png" />
+    <Card.Img variant="top" src="https://calendarmedia.blob.core.windows.net/assets/cfcab72d-b7b1-442d-bd2d-25097794861c.jpg" />
     <Card.Body>
       <Card.Title>International Tea Time
             <br></br>
             <br></br>
             <small>
-                <div className="font-weight-bold">Date:</div> September 24th
+                <div className="font-weight-bold">Date:</div> October 2nd
                 <br></br>
                 <br></br>
                 <div className="font-weight-bold">Time:</div> 5:00PM EDT
@@ -65,13 +65,13 @@ class homePage extends React.Component {
     </Card.Footer>
   </Card>
   <Card border="primary" bg="light" text="dark">
-    <Card.Img variant="top" src="internationalteatimeposter.png" />
+    <Card.Img variant="top" src="https://calendarmedia.blob.core.windows.net/assets/cfcab72d-b7b1-442d-bd2d-25097794861c.jpg" />
     <Card.Body>
       <Card.Title>International Tea Time
             <br></br>
             <br></br>
             <small>
-                <div className="font-weight-bold">Date:</div> September 24th
+                <div className="font-weight-bold">Date:</div> October 9th
                 <br></br>
                 <br></br>
                 <div className="font-weight-bold">Time:</div> 5:00PM EDT
@@ -89,13 +89,13 @@ class homePage extends React.Component {
     </Card.Footer>
   </Card>
   <Card border="primary" bg="light" text="dark">
-    <Card.Img variant="top" src="internationalteatimeposter.png" />
+    <Card.Img variant="top" src="https://calendarmedia.blob.core.windows.net/assets/cfcab72d-b7b1-442d-bd2d-25097794861c.jpg" />
     <Card.Body>
       <Card.Title>International Tea Time
             <br></br>
             <br></br>
             <small>
-                <div className="font-weight-bold">Date:</div> September 24th
+                <div className="font-weight-bold">Date:</div> October 16th
                 <br></br>
                 <br></br>
                 <div className="font-weight-bold">Time:</div> 5:00PM EDT
@@ -113,13 +113,13 @@ class homePage extends React.Component {
     </Card.Footer>
   </Card>
   <Card border="primary" bg="light" text="dark">
-    <Card.Img variant="top" src="internationalteatimeposter.png" />
+    <Card.Img variant="top" src="https://calendarmedia.blob.core.windows.net/assets/cfcab72d-b7b1-442d-bd2d-25097794861c.jpg" />
     <Card.Body>
       <Card.Title>International Tea Time
             <br></br>
             <br></br>
             <small>
-                <div className="font-weight-bold">Date:</div> September 24th
+                <div className="font-weight-bold">Date:</div> October 23rd
                 <br></br>
                 <br></br>
                 <div className="font-weight-bold">Time:</div> 5:00PM EDT
@@ -137,13 +137,13 @@ class homePage extends React.Component {
     </Card.Footer>
   </Card>
   <Card border="primary" bg="light" text="dark">
-    <Card.Img variant="top" src="internationalteatimeposter.png" />
+    <Card.Img variant="top" src="https://calendarmedia.blob.core.windows.net/assets/cfcab72d-b7b1-442d-bd2d-25097794861c.jpg" />
     <Card.Body>
       <Card.Title>International Tea Time
             <br></br>
             <br></br>
             <small>
-                <div className="font-weight-bold">Date:</div> September 24th
+                <div className="font-weight-bold">Date:</div> October 30th
                 <br></br>
                 <br></br>
                 <div className="font-weight-bold">Time:</div> 5:00PM EDT
