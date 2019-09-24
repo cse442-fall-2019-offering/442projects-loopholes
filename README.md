@@ -62,6 +62,7 @@ This user has an event or organization they want to advertise on campus. The stu
 This user wants to find a campus event or organization that piques their interest. The student would visit UBulletin to see all of the posters or announcements uploaded for the events and organizations on campus. If what they seek is not in the immediate top results (most popular, most recent), the student can utilize UBulletin’s search function and tagging system for more tailored results. If they support an event or organization, the student may vote for that event or organization’s poster.
 
 **Stack**
+
 | Purpose | Language |
 | --- | --- |
 | front-end | React.js |
