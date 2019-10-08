@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import CardColumns from 'react-bootstrap/CardColumns'
+import Col from 'react-bootstrap/Col';
 
 class homePage extends React.Component {
     constructor(props) {
