@@ -16,3 +16,7 @@ endif
 precommit:
 	git add -A
 	find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
+
+gittree:
+	git log --all --decorate --oneline --graph
+

@@ -18,3 +18,7 @@ setup:
 	npm install
 	npm install react-bootstrap bootstrap
 	npm start
+
+gittree:
+        git log --all --decorate --oneline --graph
+
