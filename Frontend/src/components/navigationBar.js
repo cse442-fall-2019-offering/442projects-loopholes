@@ -5,6 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button'
+import {Link} from 'react-router-dom';
 
 class navigationBar extends React.Component {
     constructor(props) {
@@ -19,8 +20,10 @@ class navigationBar extends React.Component {
                 <Navbar sticky="top" variant="dark" expand="lg" className="NavigationBar">
                     <Navbar.Brand href="#home">UBulletin</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link className="NavigationBarLink" href="#home">Home</Nav.Link>
-                        <Nav.Link className="NavigationBarLink" href="#create">Create</Nav.Link>
+
+                        <Link className="NavigationBarLink" to="/home">Home</Link>
+                        <Link className="NavigationBarLink" to="/create">Create</Link>
+
                         <NavDropdown title="Sort" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Date</NavDropdown.Item>
                         </NavDropdown>

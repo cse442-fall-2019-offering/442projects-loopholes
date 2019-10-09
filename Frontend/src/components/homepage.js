@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import CardColumns from 'react-bootstrap/CardColumns'
 
-class homePage extends React.Component {
+class HomePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,7 +37,7 @@ class homePage extends React.Component {
             <div className="text-right">
                 <Form.Check text="dark" type="checkbox" label="Like" />
             </div>
-        
+
     </Card.Footer>
   </Card>
 <Card border="primary" bg="light" text="dark">
@@ -61,7 +61,7 @@ class homePage extends React.Component {
             <div className="text-right">
                 <Form.Check text="dark" type="checkbox" label="Like" />
             </div>
-        
+
     </Card.Footer>
   </Card>
   <Card border="primary" bg="light" text="dark">
@@ -85,7 +85,7 @@ class homePage extends React.Component {
             <div className="text-right">
                 <Form.Check text="dark" type="checkbox" label="Like" />
             </div>
-        
+
     </Card.Footer>
   </Card>
   <Card border="primary" bg="light" text="dark">
@@ -109,7 +109,7 @@ class homePage extends React.Component {
             <div className="text-right">
                 <Form.Check text="dark" type="checkbox" label="Like" />
             </div>
-        
+
     </Card.Footer>
   </Card>
   <Card border="primary" bg="light" text="dark">
@@ -133,7 +133,7 @@ class homePage extends React.Component {
             <div className="text-right">
                 <Form.Check text="dark" type="checkbox" label="Like" />
             </div>
-        
+
     </Card.Footer>
   </Card>
   <Card border="primary" bg="light" text="dark">
@@ -157,7 +157,7 @@ class homePage extends React.Component {
             <div className="text-right">
                 <Form.Check text="dark" type="checkbox" label="Like" />
             </div>
-        
+
     </Card.Footer>
   </Card>
 </CardColumns>
@@ -165,4 +165,4 @@ class homePage extends React.Component {
         );
     }
 }
-export default homePage;
+export default HomePage;
