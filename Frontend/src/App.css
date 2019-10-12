@@ -33,6 +33,19 @@ p{
   color: #FFFCF9;
 }
 
+a{
+  text-decoration: 'none';
+  color: #FFFCF9;
+  padding: 10px;
+}
+
+a:hover{
+  color: #FFFCF9;
+}
+
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -12,9 +12,7 @@ class CreatePage extends React.Component{
   render(){
       return(
 <div>
-    <Card border="primary"  text="dark">
-      <p>Create page</p>
-    </Card>
+      <h>Create page</h>
 </div>
 );
 }
