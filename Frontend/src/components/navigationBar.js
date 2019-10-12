@@ -18,7 +18,7 @@ class navigationBar extends React.Component {
         return(
             <div>
                 <Navbar sticky="top" variant="dark" expand="lg" className="NavigationBar">
-                    <Navbar.Brand href="#home">UBulletin</Navbar.Brand>
+                    <Navbar.Brand href="/home">UBulletin</Navbar.Brand>
                     <Nav className="mr-auto">
 
                         <Link className="NavigationBarLink" to="/home">Home</Link>
