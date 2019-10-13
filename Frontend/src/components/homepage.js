@@ -8,12 +8,21 @@ class homePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            page: this.props.page
+            page: this.props.page,
+            message: ""
         }
     }
+
+    componentDidMount() {
+      fetch('http://localhost:4422/')
+      .then(res => res.json())
+      .then(msg => this.setState({ message: msg }));
+    }
+
     render(){
         return(
 <div>
+  {this.state.message}
 <br></br>
 <CardColumns>
   <Card border="primary" bg="light" text="dark">
