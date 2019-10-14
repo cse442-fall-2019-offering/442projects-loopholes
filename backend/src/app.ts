@@ -28,9 +28,9 @@ export default class App {
     // used for testing start
     let query = new QueryFirebaseDatabase();
     await query.fetchNextPostId();
-    console.log(query.getNextPostId());
-    /*let uploader = new MetadataUploader();
-    console.log(await uploader.pushToDatabase("{blah:{name: batman}}"));*/
+    let postId = query.getNextPostId();
+    let uploader = new MetadataUploader();
+    console.log(await uploader.pushToDatabase({"blah":{"name": "batman"}}, postId));
     // used for testing end
     return this;
   }
