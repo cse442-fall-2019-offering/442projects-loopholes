@@ -1,4 +1,4 @@
-import { PostMetadata } from "../objects"
+/*import { PostMetadata } from "../objects"
 
 export default class SortPosts {
 
@@ -20,3 +20,4 @@ export default class SortPosts {
     }
 
 }
+*/

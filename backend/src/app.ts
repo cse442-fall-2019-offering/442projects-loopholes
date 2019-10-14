@@ -2,6 +2,8 @@ import bodyParser from "body-parser";
 import express, { Application } from "express";
 import InternalController from "./controllers/InternalController";
 import FirebaseTestController from "./controllers/FirebaseTestController";
+import QueryFirebaseDatabase from "./querying/QueryFirebaseDatabase"
+
 
 export default class App {
   public app: Application;
@@ -22,6 +24,11 @@ export default class App {
     const firebaseTestController = new FirebaseTestController();
     this.setupRoutes(internalController, firebaseTestController);
 
+    // used for testing start
+    let query = new QueryFirebaseDatabase();
+    await query.fetchEntireDatabase();
+    console.log(query.getDataSnapshot())
+    // used for testing end
     return this;
   }
 
