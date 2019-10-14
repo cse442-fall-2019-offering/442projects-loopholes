@@ -1,4 +1,5 @@
 import { firebaseDatabase } from "../firebase";
+import  QueryFirebaseDatabase from "./QueryFirebaseDatabase";
 import { expect } from "chai";
 import "mocha";
 
@@ -27,14 +28,8 @@ describe("Test Connection", () => {
 // test if nextPostId is correctly fetched
 describe("Test get post id", () => {
   it("The post_id should be greater than 0.", async () => {
-    let result = -1;
-    await firebaseDatabase
-    .ref(FIREBASE_DATABASE_METADATA_REF)
-    .child(POST_ID_KEY)
-    .once("value")
-    .then(function(snapshot) {
-      result = snapshot.val();
-    });
-    expect(result > 0).to.be.true;
+    let downloader = new QueryFirebaseDatabase();
+    await downloader.fetchNextPostId();
+    expect(downloader.getNextPostId() > 0).to.be.true;
   });
 });

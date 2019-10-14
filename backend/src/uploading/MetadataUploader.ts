@@ -1,5 +1,5 @@
 import { firebaseDatabase } from "../firebase";
-
+import QueryFirebaseDatabase from "../querying/QueryFirebaseDatabase";
 // branch in the database to post the data to
 const FIREBASE_POST_REF = "post_database";
 // the prefix of the key that the post is going to be sotred under
@@ -12,12 +12,14 @@ const POST_ID_KEY = "post_id";
 /** MetadataUploader pushes a single instance of a post netadata to Firebase Databse. */
 export default class MetadataUploader {
 
+  private downloader: QueryFirebaseDatabase = new QueryFirebaseDatabase();
  /** Updates the nextpostId on firebase database that will be used as keys for posts. */
-  private updateNextPostId (nextPostId: number) {
+  public updateNextPostId = async () => {
+    await this.downloader.fetchNextPostId();
     firebaseDatabase
     .ref(FIREBASE_DATABASE_METADATA_REF)
     .child(POST_ID_KEY)
-    .set(nextPostId);
+    .set(this.downloader.getNextPostId() + 1);
   }
 
   /**
@@ -35,7 +37,7 @@ export default class MetadataUploader {
     .child(metadataKey)
     .set(jsonMetadata)
     .then(function(res) { // if uploading postmetadata is successful, increment nextPostId
-      self.updateNextPostId(nextPostId + 1);
+      self.updateNextPostId();
     },
     function(error) {
       console.log("unable to push metadata to firebase: " + error);
