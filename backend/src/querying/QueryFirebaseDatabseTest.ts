@@ -19,7 +19,22 @@ describe("Test Connection", () => {
     .once("value")
     .then(function(snapshot) {
       result = true;
-    })
-    expect(result).to.equal(true);
+    });
+    expect(result).to.be.true;
   });
-})
+});
+
+// test if nextPostId is correctly fetched
+describe("Test get post id", () => {
+  it("The post_id should be greater than 0.", async () => {
+    let result = -1;
+    await firebaseDatabase
+    .ref(FIREBASE_DATABASE_METADATA_REF)
+    .child(POST_ID_KEY)
+    .once("value")
+    .then(function(snapshot) {
+      result = snapshot.val();
+    });
+    expect(result > 0).to.be.true;
+  });
+});
