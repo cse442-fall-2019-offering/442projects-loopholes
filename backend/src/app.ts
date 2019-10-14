@@ -25,13 +25,6 @@ export default class App {
     const firebaseTestController = new FirebaseTestController();
     this.setupRoutes(internalController, firebaseTestController);
 
-    // used for testing start
-    let query = new QueryFirebaseDatabase();
-    await query.fetchNextPostId();
-    let postId = query.getNextPostId();
-    let uploader = new MetadataUploader();
-    console.log(await uploader.pushToDatabase({"blah":{"name": "batman"}}, postId));
-    // used for testing end
     return this;
   }
 
