@@ -9,7 +9,7 @@ const FIREBASE_DATABASE_METADATA_REF = "database_metadata";
 // the key for the post id from the database metadata
 const POST_ID_KEY = "post_id";
 
-/**  */
+/** MetadataUploader pushes a single instance of a post netadata to Firebase Databse. */
 export default class MetadataUploader {
 
  /** Updates the nextpostId on firebase database that will be used as keys for posts. */
