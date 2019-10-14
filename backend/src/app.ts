@@ -2,7 +2,8 @@ import bodyParser from "body-parser";
 import express, { Application } from "express";
 import InternalController from "./controllers/InternalController";
 import FirebaseTestController from "./controllers/FirebaseTestController";
-import QueryFirebaseDatabase from "./querying/QueryFirebaseDatabase"
+import QueryFirebaseDatabase from "./querying/QueryFirebaseDatabase";
+import MetadataUploader from "./uploading/MetadataUploader";
 
 
 export default class App {
@@ -26,8 +27,10 @@ export default class App {
 
     // used for testing start
     let query = new QueryFirebaseDatabase();
-    await query.fetchEntireDatabase();
-    console.log(query.getDataSnapshot())
+    await query.fetchNextPostId();
+    console.log(query.getNextPostId());
+    /*let uploader = new MetadataUploader();
+    console.log(await uploader.pushToDatabase("{blah:{name: batman}}"));*/
     // used for testing end
     return this;
   }
