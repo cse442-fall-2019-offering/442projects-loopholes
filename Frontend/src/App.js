@@ -16,7 +16,6 @@ function App() {
             <Route path="/create" component={CreatePage}/>
       </div>
     </Router>
-
     )
   }
 export default App;

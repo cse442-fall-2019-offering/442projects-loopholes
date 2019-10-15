@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 
@@ -10,10 +11,15 @@ class CreatePage extends React.Component{
       }
   }
   render(){
-      return(
-<div>
-      <h>Create page</h>
-</div>
+    return(
+        <div id={'button-group'}>
+            <Button variant="primary" size="lg" block>
+                Upload a File
+            </Button>
+            <Button variant="primary" size="lg" block disabled>
+                Create from Template (to be added)
+            </Button>
+        </div>
 );
 }
 }
