@@ -2,6 +2,9 @@ import bodyParser from "body-parser";
 import express, { Application } from "express";
 import InternalController from "./controllers/InternalController";
 import FirebaseTestController from "./controllers/FirebaseTestController";
+import QueryFirebaseDatabase from "./querying/QueryFirebaseDatabase";
+import MetadataUploader from "./uploading/MetadataUploader";
+
 
 export default class App {
   public app: Application;
