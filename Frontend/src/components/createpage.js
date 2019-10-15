@@ -12,7 +12,7 @@ class CreatePage extends React.Component{
   }
   render(){
     return(
-        <div id={'button-group'}>
+        <div id="create-button-group">
             <Button variant="primary" size="lg" block>
                 Upload a File
             </Button>

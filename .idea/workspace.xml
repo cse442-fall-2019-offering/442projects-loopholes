@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44698adb-d4da-4a37-bf28-5ed99eb17998" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/createpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/createpage.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,7 +58,7 @@
       <updated>1569171807206</updated>
       <workItem from="1569171809287" duration="15347000" />
       <workItem from="1569264414460" duration="1179000" />
-      <workItem from="1571120345432" duration="423000" />
+      <workItem from="1571120345432" duration="722000" />
     </task>
     <servers />
   </component>
