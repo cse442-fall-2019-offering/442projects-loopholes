@@ -23,6 +23,6 @@ firebase.initializeApp({
   messagingSenderId: FIREBASE_MESSAGING_SENDER_ID
 });
 
-const storage = firebase.storage();
+const firebaseStorage = firebase.storage();
 
-export default {storage, firebase}
+export {firebaseStorage};

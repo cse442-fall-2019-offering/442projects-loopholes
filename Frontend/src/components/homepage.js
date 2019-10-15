@@ -9,21 +9,32 @@ class homePage extends React.Component {
         super(props);
         this.state = {
             page: this.props.page,
-            message: ""
+            message: "",
+            imageLinks: []
         }
     }
 
     componentDidMount() {
-      fetch('http://localhost:4422/')
+      fetch('http://localhost:4422/getHomepageImageMetadata')
       .then(res => res.json())
-      .then(msg => this.setState({ message: msg }));
+      .then(data => {
+        let imageMetadata = [];
+        for (let key in data) {
+          imageMetadata.push(data[key]['image_link']);
+        }
+        this.setState({ imageLinks: imageMetadata });
+      });
     }
 
     render(){
+
+      let images = this.state.imageLinks.map(link => <img src={link} />)
+
         return(
 <div>
   {this.state.message}
 <br></br>
+{ images }
 <CardColumns>
   <Card border="primary" bg="light" text="dark">
     <Card.Img variant="top" src="https://calendarmedia.blob.core.windows.net/assets/cfcab72d-b7b1-442d-bd2d-25097794861c.jpg" />

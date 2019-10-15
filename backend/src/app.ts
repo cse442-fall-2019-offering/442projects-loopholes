@@ -3,6 +3,7 @@ import cors from "cors";
 import express, { Application } from "express";
 import InternalController from "./controllers/InternalController";
 import FirebaseTestController from "./controllers/FirebaseTestController";
+import FirebaseController from "./controllers/FirebaseController";
 
 export default class App {
   public app: Application;
@@ -21,7 +22,12 @@ export default class App {
 
     const internalController = new InternalController();
     const firebaseTestController = new FirebaseTestController();
-    this.setupRoutes(internalController, firebaseTestController);
+    const firebaseController = new FirebaseController();
+    this.setupRoutes(
+      internalController,
+      firebaseTestController,
+      firebaseController
+    );
 
     return this;
   }
@@ -42,7 +48,8 @@ export default class App {
    */
   private setupRoutes(
     internalController: InternalController,
-    firebaseTestController: FirebaseTestController
+    firebaseTestController: FirebaseTestController,
+    firebaseController: FirebaseController
   ): void {
     this.app.route("/").get(internalController.root);
     // tests post request to Firebase from the backend
@@ -53,5 +60,14 @@ export default class App {
     this.app
       .route("/firebaseTestFetchEndpoint")
       .get(firebaseTestController.fetchJsonBodyFromFirebaseDatabase);
+
+    // image upload
+    this.app
+      .route("/uploadImageMetadata")
+      .post(firebaseController.uploadImageMetadata);
+
+    this.app
+      .route("/getHomepageImageMetadata")
+      .get(firebaseController.getHomepageImageMetadata);
   }
 }
