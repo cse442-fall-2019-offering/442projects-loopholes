@@ -12,8 +12,8 @@ class CreatePage extends React.Component{
     }
     render(){
         return(
-            <div id="create-button-group">
-                <Link to="/create/upload">
+            <div className={'page_content'}>
+                <Link to="/upload">
                     <Button variant="primary" size="lg" block>
                         Upload a File
                     </Button>

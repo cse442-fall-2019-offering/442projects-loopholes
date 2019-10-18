@@ -7,7 +7,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import {Link} from 'react-router-dom';
 
-class navigationBar extends React.Component {
+class NavigationBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,4 +38,4 @@ class navigationBar extends React.Component {
     }
 }
 
-export default navigationBar;
+export default NavigationBar;
