@@ -5,16 +5,16 @@ import './App.css';
 import NavigationBar from "./components/navigationBar.js";
 import HomePage from "./components/homepage.js";
 import CreatePage from "./components/createpage.js";
+import UploadPage from "./components/uploadpage";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
     return (
     <Router>
-      <div>
           <NavigationBar/>
             <Route path="/home" component={HomePage}/>
             <Route path="/create" component={CreatePage}/>
-      </div>
+            <Route path="/create/upload" component={UploadPage}/>
     </Router>
     )
   }
