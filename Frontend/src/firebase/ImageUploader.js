@@ -1,4 +1,5 @@
 import { firebaseStorage } from "./index";
+import * as Endpoint from '../constants/Endpoint';
 
 /**
  * upload a single image to firebaseStorage
@@ -22,10 +23,17 @@ export default class ImageUploader {
   sendImageToFirebaseStorage = async () => {
     try {
       const uploadTask = await firebaseStorage
-        .ref("Images/${fileName}")
+        .ref(`Images/${this.fileName}`)
         .put(this.imageFile);
       const downloadURL = await uploadTask.ref.getDownloadURL();
       this.imageURL = downloadURL;
+      fetch(process.env.REACT_APP_BACKEND_API + Endpoint.UPLOAD_IMAGE_METADATA, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          'image_link': this.imageURL
+        })
+      });
     } catch (error) {
       console.log("Unable to upload file: " + this.fileName + "\n" + error);
       alert("Uploading image failed!");

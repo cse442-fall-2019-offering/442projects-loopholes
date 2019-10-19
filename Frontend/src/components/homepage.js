@@ -2,7 +2,10 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-import CardColumns from 'react-bootstrap/CardColumns'
+import CardColumns from 'react-bootstrap/CardColumns';
+import * as Endpoint from '../constants/Endpoint';
+import ImageUploader from '../firebase/ImageUploader';
+import { getTimestampImageString } from '../util/helper-functions/timestamp';
 
 class homePage extends React.Component {
     constructor(props) {
@@ -15,7 +18,7 @@ class homePage extends React.Component {
     }
 
     componentDidMount() {
-      fetch('http://localhost:4422/getHomepageImageMetadata')
+      fetch(process.env.REACT_APP_BACKEND_API + Endpoint.GET_HOMEPAGE_IMAGE_METADATA)
       .then(res => res.json())
       .then(data => {
         let imageMetadata = [];
@@ -26,6 +29,11 @@ class homePage extends React.Component {
       });
     }
 
+    uploadFile = async (e) => {
+      const uploader = new ImageUploader(e.target.files[0], `${getTimestampImageString()}.jpg`);
+      await uploader.sendImageToFirebaseStorage();
+    }
+
     render(){
 
       let images = this.state.imageLinks.map(link => <img src={link} />)
@@ -34,7 +42,8 @@ class homePage extends React.Component {
 <div>
   {this.state.message}
 <br></br>
-{ images }
+<input type="file" onChange={this.uploadFile} accept="image/*"></input>
+{images}
 <CardColumns>
   <Card border="primary" bg="light" text="dark">
     <Card.Img variant="top" src="https://calendarmedia.blob.core.windows.net/assets/cfcab72d-b7b1-442d-bd2d-25097794861c.jpg" />
