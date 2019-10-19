@@ -36,4 +36,11 @@ const HomepageCard = ({
     );
 };
 
+HomepageCard.defaultProps = {
+    title: "Untitled",
+    date: "N/A",
+    time: "N/A",
+    place: "N/A"
+}
+
 export default HomepageCard;

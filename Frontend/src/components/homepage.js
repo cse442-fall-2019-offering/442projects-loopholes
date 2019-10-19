@@ -1,7 +1,5 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
 import CardColumns from 'react-bootstrap/CardColumns';
 import HomepageCard from './homepageCard';
 import * as Endpoint from '../constants/Endpoint';
@@ -38,7 +36,7 @@ class homePage extends React.Component {
     render(){
 
       let images = this.state.imageLinks.map(link => <img src={link} />);
-      let cards = this.state.imageLinks.map(link => <HomepageCard imageLink={link} title="Untitled" date="N/A" time="N/A" place="N/A" />);
+      let cards = this.state.imageLinks.map(link => <HomepageCard imageLink={link} />);
 
         return(
 <div>
