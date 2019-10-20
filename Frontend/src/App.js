@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import NavigationBar from "./components/navigationbar.js";
+import NavigationBar from "./components/navigationBar.js";
 import HomePage from "./components/homepage.js";
 import CreatePage from "./components/createpage.js";
 import UploadPage from "./components/uploadpage.js";
