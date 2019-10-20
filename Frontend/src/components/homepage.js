@@ -47,7 +47,7 @@ class homePage extends React.Component {
             <div className="text-right">
                 <Form.Check text="dark" type="checkbox" label="Like" />
             </div>
-        
+
     </Card.Footer>
   </Card>
             </CardColumns>
