@@ -1,5 +1,6 @@
 import { config } from "dotenv";
 import App from "./app";
+import { AddressInfo } from "net";
 
 // Inject environment variables from `.env` file
 config();
