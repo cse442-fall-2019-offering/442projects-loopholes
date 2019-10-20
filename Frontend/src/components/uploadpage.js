@@ -20,7 +20,7 @@ class UploadPage extends React.Component{
     };
 
     startUpload = () => {
-        var sender = ImageUploader.constructor(this._imgToUpload, this._nameToUpload);
+        let sender = new ImageUploader(this._imgToUpload, this._nameToUpload);
         sender.sendImageToFirebaseStorage();
     };
 

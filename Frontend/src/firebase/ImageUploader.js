@@ -18,6 +18,8 @@ export default class ImageUploader {
   constructor(imageFile, fileName) {
     this.imageFile = imageFile;
     this.fileName = fileName;
+    //console.log(imageFile);
+    //console.log(fileName);
   }
 
   sendImageToFirebaseStorage = async () => {
