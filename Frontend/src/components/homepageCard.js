@@ -30,11 +30,6 @@ const HomepageCard = ({
                 </Card.Body>
             <Card.Footer>
                 <div className="text-right">
-                  <Button
-                  variant="primary"
-                  >
-                      Zoom
-                  </Button>
                     <Form.Check text="dark" type="checkbox" label="Like" />
                 </div>
             </Card.Footer>

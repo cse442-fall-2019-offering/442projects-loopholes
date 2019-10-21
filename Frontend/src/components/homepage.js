@@ -4,6 +4,7 @@ import CardColumns from 'react-bootstrap/CardColumns';
 import HomepageCard from './homepageCard';
 import * as Endpoint from '../constants/Endpoint';
 import ImageUploader from '../firebase/ImageUploader';
+import ZoomIn from '../components/zoomin.js'
 import { getTimestampImageString } from '../util/helper-functions/timestamp';
 
 class homePage extends React.Component {
@@ -45,9 +46,10 @@ class homePage extends React.Component {
 <input type="file" onChange={this.uploadFile} accept="image/*"></input>
 <CardColumns>
   {cards}
+  <ZoomIn/>
 </CardColumns>
 </div>
         );
     }
 }
-export default homePage; 
+export default homePage;

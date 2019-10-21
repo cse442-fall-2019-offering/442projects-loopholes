@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {Button, Card, Image, Modal} from 'react-bootstrap';
 import HomepageCard from "../components/homepageCard.js"
 
+
 class zoomIn extends React.Component {
 
     constructor(props) {
@@ -33,9 +34,10 @@ class zoomIn extends React.Component {
                 </Button>
                   <Modal show={this.state.show} onHide={this.handleClose}>
                      <Modal.Header closeButton/>
+                     <HomepageCard/>
                   </Modal>
             </div>
         );
     }
 }
-export default zoomIn;
+export default ZoomIn;
