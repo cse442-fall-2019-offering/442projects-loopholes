@@ -1,7 +1,6 @@
 import bodyParser from "body-parser";
 import cors from "cors";
-// import express, { Application } from "express";
-import express, { Application } from "https-localhost";
+import express, { Application } from "express";
 import InternalController from "./controllers/InternalController";
 import FirebaseTestController from "./controllers/FirebaseTestController";
 import FirebaseController from "./controllers/FirebaseController";
