@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-
+import Button from 'react-bootstrap/Button';
 
 const HomepageCard = ({
     imageLink,
@@ -30,7 +30,11 @@ const HomepageCard = ({
                 </Card.Body>
             <Card.Footer>
                 <div className="text-right">
-                    <ZoomIn/>
+                  <Button
+                  variant="primary"
+                  >
+                      Zoom
+                  </Button>
                     <Form.Check text="dark" type="checkbox" label="Like" />
                 </div>
             </Card.Footer>

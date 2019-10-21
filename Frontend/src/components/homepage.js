@@ -50,4 +50,4 @@ class homePage extends React.Component {
         );
     }
 }
-export default homePage;
+export default homePage; 
