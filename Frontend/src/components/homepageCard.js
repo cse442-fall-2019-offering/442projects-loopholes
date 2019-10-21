@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
 
 const HomepageCard = ({
     imageLink,
@@ -11,7 +12,13 @@ const HomepageCard = ({
 }) => {
     return (
         <Card border="primary" bg="light" text="dark">
-            <Card.Img variant="top" src={imageLink} />
+                <Nav>
+                    <Nav.Item>
+                        <Nav.Link href={imageLink} target="_blank">
+                            <Card.Img variant="top" src={imageLink} />
+                        </Nav.Link>
+                    </Nav.Item>
+                </Nav>
                 <Card.Body>
                     <Card.Title>{title}
                             <br></br>
