@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import {Button, Card, Image, Modal} from 'react-bootstrap';
+import {Button, Modal} from 'react-bootstrap';
 import HomepageCard from "../components/homepageCard.js"
 
 

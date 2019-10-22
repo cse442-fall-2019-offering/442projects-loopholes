@@ -1,8 +1,6 @@
 import React from 'react';
 import ImageUploader from "../firebase/ImageUploader";
-import {FilePond} from 'react-filepond';
 import 'filepond/dist/filepond.min.css';
-import Button from 'react-bootstrap/Button'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class UploadPage extends React.Component{
