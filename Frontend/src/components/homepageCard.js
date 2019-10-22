@@ -2,15 +2,17 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
-import Button from 'react-bootstrap/Button';
+import ZoomIn from './zoomin';
 
-const HomepageCard = ({
-    imageLink,
-    title,
-    date,
-    time,
-    place
-}) => {
+const HomepageCard = props => {
+    const {
+        imageLink,
+        title,
+        date,
+        time,
+        place,
+        zoomed
+    } = props;
     return (
         <Card border="primary" bg="light" text="dark">
                 <Nav>
@@ -36,6 +38,11 @@ const HomepageCard = ({
                     </Card.Title>
                 </Card.Body>
             <Card.Footer>
+                <div className="text-center">
+                    {!zoomed &&
+                    <ZoomIn cardProps={props}/>
+                    }
+                </div>
                 <div className="text-right">
                     <Form.Check text="dark" type="checkbox" label="Like" />
                 </div>
@@ -48,7 +55,8 @@ HomepageCard.defaultProps = {
     title: "Untitled",
     date: "N/A",
     time: "N/A",
-    place: "N/A"
+    place: "N/A",
+    zoomed: false
 }
 
 export default HomepageCard;
