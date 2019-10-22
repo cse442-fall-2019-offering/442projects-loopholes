@@ -4,7 +4,7 @@ import {Button, Card, Image, Modal} from 'react-bootstrap';
 import HomepageCard from "../components/homepageCard.js"
 
 
-export default function ZoomIn() {
+function ZoomIn() {
 
     const [show, setShow] = useState(false)
     const handleShow = () => setShow(true)
@@ -20,8 +20,10 @@ export default function ZoomIn() {
                 </Button>
                   <Modal show={show} onHide={handleClose}>
                      <Modal.Header closeButton/>
-                     <HomepageCard/>
+                    <HomepageCard/>
                   </Modal>
             </div>
         );
 }
+
+export default ZoomIn;
