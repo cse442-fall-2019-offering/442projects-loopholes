@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
-class searchBar extends React.Component {
+class SearchBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -28,4 +28,5 @@ class searchBar extends React.Component {
         );
     }
 }
-export default searchBar;
+
+export default SearchBar;

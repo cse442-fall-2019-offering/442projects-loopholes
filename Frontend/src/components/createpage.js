@@ -1,23 +1,29 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card';
+import {Link} from 'react-router-dom';
 
-class createPage extends React.Component{
-  constructor(props) {
+class CreatePage extends React.Component{
+    constructor(props) {
       super(props);
       this.state = {
           page: this.props.page
       }
-  }
-  render(){
-      return(
-<div>
-    <Card border="primary" bg="light" text="dark">
+    }
+    render(){
+        return(
+            <div className={'page_content'}>
+                <Link to="/CSE442-542/2019-Fall/cse-442i/upload">
+                    <Button variant="primary" size="lg" block>
+                        Upload a File
+                    </Button>
+                </Link>
+                <Button variant="primary" size="lg" block disabled>
+                    Create from Template (to be added)
+                </Button>
+            </div>
+        );
+        }
+    }
 
-    </Card>
-</div>
-);
-}
-}
-
-export default createPage;
+export default CreatePage;

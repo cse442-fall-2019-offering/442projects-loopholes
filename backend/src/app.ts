@@ -1,10 +1,8 @@
 import bodyParser from "body-parser";
+import cors from "cors";
 import express, { Application } from "express";
 import InternalController from "./controllers/InternalController";
-import FirebaseTestController from "./controllers/FirebaseTestController";
-import QueryFirebaseDatabase from "./querying/QueryFirebaseDatabase";
-import MetadataUploader from "./uploading/MetadataUploader";
-
+import FirebaseController from "./controllers/FirebaseController";
 
 export default class App {
   public app: Application;
@@ -22,8 +20,8 @@ export default class App {
     this.setupMiddleware();
 
     const internalController = new InternalController();
-    const firebaseTestController = new FirebaseTestController();
-    this.setupRoutes(internalController, firebaseTestController);
+    const firebaseController = new FirebaseController();
+    this.setupRoutes(internalController, firebaseController);
 
     return this;
   }
@@ -33,26 +31,30 @@ export default class App {
    */
   private setupMiddleware(): void {
     this.app.use(bodyParser.json()); // bodyParser is needed in order to parse incoming JSON request bodies
+    this.app.use(cors());
   }
 
   /**
    * Sets up REST endpoints
    *
    * @param internalController Controller that stores functions that handle incoming requests that deal with the application
-   * @param firebaseTestController Controller that stores functions that handle incoming requests that deal with Firebase
+   * @param firebaseController Controller that stores functions that handle incoming requests that deal with Firebase
    */
   private setupRoutes(
     internalController: InternalController,
-    firebaseTestController: FirebaseTestController
+    firebaseController: FirebaseController
   ): void {
+    /* root route */
     this.app.route("/").get(internalController.root);
-    // tests post request to Firebase from the backend
+
+    /* uploading image metadata */
     this.app
-      .route("/firebaseTestPostEndpoint")
-      .post(firebaseTestController.insertJsonBodyToFirebaseDatabase);
-    // tests get request to Firebase from the backend
+      .route("/uploadImageMetadata")
+      .post(firebaseController.uploadImageMetadata);
+
+    /* fetching image metadata for homepage */
     this.app
-      .route("/firebaseTestFetchEndpoint")
-      .get(firebaseTestController.fetchJsonBodyFromFirebaseDatabase);
+      .route("/getHomepageImageMetadata")
+      .get(firebaseController.getHomepageImageMetadata);
   }
 }
