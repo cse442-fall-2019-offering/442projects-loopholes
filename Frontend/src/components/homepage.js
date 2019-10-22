@@ -5,6 +5,10 @@ import HomepageCard from './homepageCard';
 import * as Endpoint from '../constants/Endpoint';
 import ImageUploader from '../firebase/ImageUploader';
 import { getTimestampImageString } from '../util/helper-functions/timestamp';
+<<<<<<< HEAD
+=======
+import ZoomIn from './zoomin'
+>>>>>>> feature-postzoomin
 
 class homePage extends React.Component {
     constructor(props) {
@@ -44,7 +48,11 @@ class homePage extends React.Component {
 <br></br>
 <input type="file" onChange={this.uploadFile} accept="image/*"></input>
 <CardColumns>
+<<<<<<< HEAD
   {cards}
+=======
+  {cards && <ZoomIn/>}
+>>>>>>> feature-postzoomin
 </CardColumns>
 </div>
         );
