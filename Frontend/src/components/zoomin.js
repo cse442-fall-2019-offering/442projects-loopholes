@@ -4,40 +4,24 @@ import {Button, Card, Image, Modal} from 'react-bootstrap';
 import HomepageCard from "../components/homepageCard.js"
 
 
-class zoomIn extends React.Component {
+export default function ZoomIn() {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            show: false
-        }
-        this.handleShow = this.handleShow.bind(this);
-        this.handleClose = this.handleClose.bind(this);
-    }
+    const [show, setShow] = useState(false)
+    const handleShow = () => setShow(true)
+    const handleClose = () => setShow(false)
 
-    handleShow(){
-      this.setState({show:true})
-    };
-
-    handleClose(){
-      this.setState({show:false})
-    }
-
-    render(){
         return(
             <div>
                 <br></br>
                 <Button
                 variant="primary"
-                onClick={this.handleShow}>
+                onClick={handleShow}>
                     Zoom
                 </Button>
-                  <Modal show={this.state.show} onHide={this.handleClose}>
+                  <Modal show={show} onHide={handleClose}>
                      <Modal.Header closeButton/>
                      <HomepageCard/>
                   </Modal>
             </div>
         );
-    }
 }
-export default ZoomIn;
