@@ -1,0 +1,30 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Ok = /** @class */ (function () {
+    function Ok(value) {
+        this.value = value;
+    }
+    Ok.prototype.map = function (fn) {
+        return ok(fn(this.value));
+    };
+    return Ok;
+}());
+exports.Ok = Ok;
+var Err = /** @class */ (function () {
+    function Err(error) {
+        this.error = error;
+    }
+    Err.prototype.map = function (fn) {
+        return err(this.error);
+    };
+    return Err;
+}());
+exports.Err = Err;
+function ok(value) {
+    return new Ok(value);
+}
+exports.ok = ok;
+function err(error) {
+    return new Err(error);
+}
+exports.err = err;

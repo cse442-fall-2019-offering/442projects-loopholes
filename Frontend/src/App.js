@@ -1,16 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import NavigationBar from "./components/navigationBar.js";
 import HomePage from "./components/homepage.js";
+import CreatePage from "./components/createpage.js";
+import UploadPage from "./components/uploadpage.js";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 function App() {
     return (
-        <div>
+    <Router>
           <NavigationBar/>
-            <HomePage/>
-        </div>
+            <Route path="/CSE442-542/2019-Fall/cse-442i/home" component={HomePage}/>
+            <Route path="/CSE442-542/2019-Fall/cse-442i/create" component={CreatePage}/>
+            <Route path="/CSE442-542/2019-Fall/cse-442i/upload" component={UploadPage}/>
+    </Router>
     )
   }
 export default App;
