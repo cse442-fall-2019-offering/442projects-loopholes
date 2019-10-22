@@ -2,7 +2,7 @@
   "name": "ubulletin",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "/CSE442-542/2019-Fall/cse-442i/",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "dotenv": "^8.2.0",

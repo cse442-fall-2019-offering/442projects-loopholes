@@ -18,11 +18,11 @@ class NavigationBar extends React.Component {
         return(
             <div>
                 <Navbar sticky="top" variant="dark" expand="lg" className="NavigationBar">
-                    <Navbar.Brand href="https://www-student.cse.buffalo.edu/CSE442-542/2019-Fall/cse-442i/deployment/442projects-loopholes/Frontend/build/">UBulletin</Navbar.Brand>
+                    <Navbar.Brand href="https://www-student.cse.buffalo.edu/CSE442-542/2019-Fall/cse-442i/">UBulletin</Navbar.Brand>
                     <Nav className="mr-auto">
 
-                        <Link className="NavigationBarLink" to="/home">Home</Link>
-                        <Link className="NavigationBarLink" to="/create">Create</Link>
+                        <Link className="NavigationBarLink" to="/CSE442-542/2019-Fall/cse-442i/home">Home</Link>
+                        <Link className="NavigationBarLink" to="/CSE442-542/2019-Fall/cse-442i/create">Create</Link>
 
                         <NavDropdown title="Sort" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Date</NavDropdown.Item>

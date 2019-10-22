@@ -11,9 +11,9 @@ function App() {
     return (
     <Router>
           <NavigationBar/>
-            <Route path="/home" component={HomePage}/>
-            <Route path="/create" component={CreatePage}/>
-            <Route path="/upload" component={UploadPage}/>
+            <Route path="/CSE442-542/2019-Fall/cse-442i/home" component={HomePage}/>
+            <Route path="/CSE442-542/2019-Fall/cse-442i/create" component={CreatePage}/>
+            <Route path="/CSE442-542/2019-Fall/cse-442i/upload" component={UploadPage}/>
     </Router>
     )
   }
