@@ -36,3 +36,10 @@ code {
 #nav-link {
   color: #FFFFFF;
 }
+
+.page_content {
+  padding-top: 25px;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-bottom: 150px;
+}

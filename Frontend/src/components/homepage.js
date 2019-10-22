@@ -6,7 +6,7 @@ import * as Endpoint from '../constants/Endpoint';
 import ImageUploader from '../firebase/ImageUploader';
 import { getTimestampImageString } from '../util/helper-functions/timestamp';
 
-class homePage extends React.Component {
+class HomePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -50,4 +50,4 @@ class homePage extends React.Component {
         );
     }
 }
-export default homePage;
+export default HomePage;

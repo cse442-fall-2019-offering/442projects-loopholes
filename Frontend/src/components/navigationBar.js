@@ -1,12 +1,13 @@
 import React from 'react';
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
-import Form from 'react-bootstrap/Form'
-import FormControl from 'react-bootstrap/FormControl'
-import Button from 'react-bootstrap/Button'
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom';
 
-class navigationBar extends React.Component {
+class NavigationBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,10 +18,12 @@ class navigationBar extends React.Component {
         return(
             <div>
                 <Navbar sticky="top" variant="dark" expand="lg" className="NavigationBar">
-                    <Navbar.Brand href="#home">UBulletin</Navbar.Brand>
+                    <Navbar.Brand href="/home">UBulletin</Navbar.Brand>
                     <Nav className="mr-auto">
-                        <Nav.Link className="NavigationBarLink" href="#home">Home</Nav.Link>
-                        <Nav.Link className="NavigationBarLink" href="#create">Create</Nav.Link>
+
+                        <Link className="NavigationBarLink" to="/home">Home</Link>
+                        <Link className="NavigationBarLink" to="/create">Create</Link>
+
                         <NavDropdown title="Sort" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Date</NavDropdown.Item>
                         </NavDropdown>
@@ -35,4 +38,4 @@ class navigationBar extends React.Component {
     }
 }
 
-export default navigationBar;
+export default NavigationBar;

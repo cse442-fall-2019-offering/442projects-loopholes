@@ -13,11 +13,6 @@
   height: 10vmin;
   width: 100%;
   display: inline-flex;
-/*  flex-direction: row;
-  align-items: center;
-    min-height: 100vh;
-  justify-content: center;
-  font-size: calc(10px + 2vmin); */
   color: white;
 }
 
@@ -35,6 +30,16 @@ p{
   padding-left: 10px;
   text-align: left;
   font-size: 200%;
+  color: #FFFCF9;
+}
+
+a{
+  text-decoration: 'none';
+  color: #FFFCF9;
+  padding: 10px;
+}
+
+a:hover{
   color: #FFFCF9;
 }
 
