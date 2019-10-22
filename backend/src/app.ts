@@ -68,6 +68,7 @@ export default class App {
       .route("/uploadImageMetadata")
       .post(firebaseController.uploadImageMetadata);
 
+    // homepage fetch images
     this.app
       .route("/getHomepageImageMetadata")
       .get(firebaseController.getHomepageImageMetadata);
