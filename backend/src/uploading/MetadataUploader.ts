@@ -11,16 +11,15 @@ const POST_ID_KEY = "post_id";
 
 /** MetadataUploader pushes a single instance of a post netadata to Firebase Databse. */
 export default class MetadataUploader {
-
   private downloader: QueryFirebaseDatabase = new QueryFirebaseDatabase();
- /** Updates the nextpostId on firebase database that will be used as keys for posts. */
+  /** Updates the nextpostId on firebase database that will be used as keys for posts. */
   public updateNextPostId = async () => {
     await this.downloader.fetchNextPostId();
     firebaseDatabase
-    .ref(FIREBASE_DATABASE_METADATA_REF)
-    .child(POST_ID_KEY)
-    .set(this.downloader.getNextPostId() + 1);
-  }
+      .ref(FIREBASE_DATABASE_METADATA_REF)
+      .child(POST_ID_KEY)
+      .set(this.downloader.getNextPostId() + 1);
+  };
 
   /**
    * Pushes the supplied post as a json to the firebase database.
@@ -33,14 +32,17 @@ export default class MetadataUploader {
     var self = this;
     let metadataKey = FIREBASE_POST_METADATA_KEY_PREFIX + nextPostId;
     firebaseDatabase
-    .ref(FIREBASE_POST_REF)
-    .child(metadataKey)
-    .set(jsonMetadata)
-    .then(function(res) { // if uploading postmetadata is successful, increment nextPostId
-      self.updateNextPostId();
-    },
-    function(error) {
-      console.log("unable to push metadata to firebase: " + error);
-    });
-  }
+      .ref(FIREBASE_POST_REF)
+      .child(metadataKey)
+      .set(jsonMetadata)
+      .then(
+        function(res) {
+          // if uploading postmetadata is successful, increment nextPostId
+          self.updateNextPostId();
+        },
+        function(error) {
+          console.log("unable to push metadata to firebase: " + error);
+        }
+      );
+  };
 }
