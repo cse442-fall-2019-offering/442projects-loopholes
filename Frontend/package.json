@@ -2,7 +2,7 @@
   "name": "ubulletin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://www-student.cse.buffalo.edu/CSE442-542/2019-Fall/cse-442i/",
+  "homepage": ".",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "dotenv": "^8.2.0",

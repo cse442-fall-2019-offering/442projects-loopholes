@@ -34,6 +34,7 @@ export default class ImageUploader {
           'image_link': this.imageURL
         })
       });
+      alert("Image successfully uploaded, please return to the homepage to view it!");
     } catch (error) {
       console.log("Unable to upload file: " + this.fileName + "\n" + error);
       alert("Uploading image failed!");
