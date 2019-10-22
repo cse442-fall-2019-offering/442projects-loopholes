@@ -2,9 +2,6 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import express, { Application } from "express";
 import InternalController from "./controllers/InternalController";
-import FirebaseTestController from "./controllers/FirebaseTestController";
-import QueryFirebaseDatabase from "./querying/QueryFirebaseDatabase";
-import MetadataUploader from "./uploading/MetadataUploader";
 import FirebaseController from "./controllers/FirebaseController";
 
 export default class App {
@@ -23,13 +20,8 @@ export default class App {
     this.setupMiddleware();
 
     const internalController = new InternalController();
-    const firebaseTestController = new FirebaseTestController();
     const firebaseController = new FirebaseController();
-    this.setupRoutes(
-      internalController,
-      firebaseTestController,
-      firebaseController
-    );
+    this.setupRoutes(internalController, firebaseController);
 
     return this;
   }
@@ -46,29 +38,21 @@ export default class App {
    * Sets up REST endpoints
    *
    * @param internalController Controller that stores functions that handle incoming requests that deal with the application
-   * @param firebaseTestController Controller that stores functions that handle incoming requests that deal with Firebase
+   * @param firebaseController Controller that stores functions that handle incoming requests that deal with Firebase
    */
   private setupRoutes(
     internalController: InternalController,
-    firebaseTestController: FirebaseTestController,
     firebaseController: FirebaseController
   ): void {
+    /* root route */
     this.app.route("/").get(internalController.root);
-    // tests post request to Firebase from the backend
-    this.app
-      .route("/firebaseTestPostEndpoint")
-      .post(firebaseTestController.insertJsonBodyToFirebaseDatabase);
-    // tests get request to Firebase from the backend
-    this.app
-      .route("/firebaseTestFetchEndpoint")
-      .get(firebaseTestController.fetchJsonBodyFromFirebaseDatabase);
 
-    // image upload
+    /* uploading image metadata */
     this.app
       .route("/uploadImageMetadata")
       .post(firebaseController.uploadImageMetadata);
 
-    // homepage fetch images
+    /* fetching image metadata for homepage */
     this.app
       .route("/getHomepageImageMetadata")
       .get(firebaseController.getHomepageImageMetadata);
