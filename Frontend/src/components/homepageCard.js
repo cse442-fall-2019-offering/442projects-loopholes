@@ -43,8 +43,12 @@ const HomepageCard = props => {
                     <ZoomIn cardProps={props}/>
                     }
                 </div>
+                <div className="text-left">
+                    
+                </div>
                 <div className="text-right">
                     <Form.Check text="dark" type="checkbox" label="Like" />
+                    //HANDLE CLICK
                 </div>
             </Card.Footer>
         </Card>    
