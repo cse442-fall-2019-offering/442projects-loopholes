@@ -9,7 +9,7 @@ const POST_ID_KEY = "post_id";
 
 /* This Class Fetches the data from Firebase Database. */
 export default class QueryFirebaseDatabase {
-  dataSnapshot : any;
+  dataSnapshot: any;
   nextPostId = -1;
 
   // This function simply stores the wraps the data snapshot in an instance of this class.
@@ -26,11 +26,11 @@ export default class QueryFirebaseDatabase {
   public fetchEntireDatabase = async () => {
     var self = this;
     await firebaseDatabase
-    .ref(FIREBASE_FETCH_REF)
-    .once("value")
-    .then(function(snapshot) {
-      self.setDataSnapshot(snapshot.val());
-    });
+      .ref(FIREBASE_FETCH_REF)
+      .once("value")
+      .then(function(snapshot) {
+        self.setDataSnapshot(snapshot.val());
+      });
   };
 
   // reutrns the next post id to upload to
@@ -40,16 +40,15 @@ export default class QueryFirebaseDatabase {
     return temp;
   }
 
- /* Fetches the next post id to use for uploading. */
+  /* Fetches the next post id to use for uploading. */
   public fetchNextPostId = async () => {
     let self = this;
     await firebaseDatabase
-    .ref(FIREBASE_DATABASE_METADATA_REF)
-    .child(POST_ID_KEY)
-    .once("value")
-    .then(function(snapshot) {
-      self.nextPostId = snapshot.val();
-    });
-  }
-
+      .ref(FIREBASE_DATABASE_METADATA_REF)
+      .child(POST_ID_KEY)
+      .once("value")
+      .then(function(snapshot) {
+        self.nextPostId = snapshot.val();
+      });
+  };
 }

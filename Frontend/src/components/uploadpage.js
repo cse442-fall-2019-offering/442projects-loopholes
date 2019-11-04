@@ -24,7 +24,15 @@ class UploadPage extends React.Component {
   };
 
   startUpload = () => {
-    let sender = new ImageUploader(this._imgToUpload, this._nameToUpload);
+    const { eventTitle, eventDate, eventTime, eventLocation } = this.state;
+    let sender = new ImageUploader(
+      this._imgToUpload,
+      this._nameToUpload,
+      eventTitle,
+      eventDate,
+      eventTime,
+      eventLocation
+    );
     sender.sendImageToFirebaseStorage();
   };
 
@@ -39,28 +47,24 @@ class UploadPage extends React.Component {
         <h1> Upload a File to Make a Post </h1>
         <input type="file" onChange={this.choseFileHandler} />
         <input
-          key="test"
           type="text"
           onChange={e => this.onTextInputChange("eventTitle", e)}
           value={eventTitle}
           placeholder={"Event Title"}
         />
         <input
-          key="test"
           type="text"
           onChange={e => this.onTextInputChange("eventDate", e)}
           value={eventDate}
           placeholder={"Event Date"}
         />
         <input
-          key="test"
           type="text"
           onChange={e => this.onTextInputChange("eventTime", e)}
           value={eventTime}
           placeholder={"Event Time"}
         />
         <input
-          key="test"
           type="text"
           onChange={e => this.onTextInputChange("eventLocation", e)}
           value={eventLocation}
