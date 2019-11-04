@@ -2,6 +2,9 @@ import React from "react";
 import ImageUploader from "../firebase/ImageUploader";
 import "filepond/dist/filepond.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 class UploadPage extends React.Component {
   state = {
@@ -44,32 +47,67 @@ class UploadPage extends React.Component {
     const { eventTitle, eventDate, eventTime, eventLocation } = this.state;
     return (
       <div className={"page_content"}>
-        <h1> Upload a File to Make a Post </h1>
-        <input type="file" onChange={this.choseFileHandler} />
-        <input
-          type="text"
-          onChange={e => this.onTextInputChange("eventTitle", e)}
-          value={eventTitle}
-          placeholder={"Event Title"}
-        />
-        <input
-          type="text"
-          onChange={e => this.onTextInputChange("eventDate", e)}
-          value={eventDate}
-          placeholder={"Event Date"}
-        />
-        <input
-          type="text"
-          onChange={e => this.onTextInputChange("eventTime", e)}
-          value={eventTime}
-          placeholder={"Event Time"}
-        />
-        <input
-          type="text"
-          onChange={e => this.onTextInputChange("eventLocation", e)}
-          value={eventLocation}
-          placeholder={"Event Location"}
-        />
+        <h1> Upload a File to Make a Post </h1><br></br>
+        <input type="file" onChange={this.choseFileHandler} /><br></br>
+        <br></br>
+        <Form>
+            <Form.Row>
+                <Form.Label column sm="3">Enter a title for your post</Form.Label>
+                <Form.Check inline text="dark" type="checkbox" label="No title" />
+            </Form.Row>
+            <Form.Row>
+                <Col sm = {7}>
+                <Form.Control
+                    type="text"
+                    onChange={e => this.onTextInputChange("eventTitle", e)}
+                    value={eventTitle}
+                    placeholder="Enter title" />
+                </Col>
+            </Form.Row>
+            <br></br>
+            <Form.Row>
+                <Form.Label column sm="3">Enter a date for your post</Form.Label>
+                <Form.Check inline text="dark" type="checkbox" label="No date" />
+            </Form.Row>
+            <Form.Row>
+                <Col sm = {7}>
+                <Form.Control 
+                    type="text"
+                    onChange={e => this.onTextInputChange("eventDate", e)}
+                    value={eventDate}
+                    placeholder="Enter date" />
+                </Col>
+            </Form.Row>
+            <br></br>
+            <Form.Row>
+                <Form.Label column sm="3">Enter a time for your post</Form.Label>
+                <Form.Check inline text="dark" type="checkbox" label="No time" />
+            </Form.Row>
+            <Form.Row>
+                <Col sm = {7}>
+                <Form.Control 
+                    type="text"
+                    onChange={e => this.onTextInputChange("eventTime", e)}
+                    value={eventTime}
+                    placeholder="Enter time" /> 
+                </Col>
+            </Form.Row>
+            <br></br>
+            <Form.Row>
+                <Form.Label column sm="3">Enter a location for your post</Form.Label>
+                <Form.Check inline text="dark" type="checkbox" label="No location" />
+            </Form.Row>
+            <Form.Row>
+                <Col sm = {7}>
+                <Form.Control 
+                    type="text"
+                    onChange={e => this.onTextInputChange("eventLocation", e)}
+                    value={eventLocation}
+                    placeholder="Enter location" />
+                </Col>
+            </Form.Row>
+        </Form>
+        <br></br>
         <button onClick={this.startUpload}>Upload</button>
       </div>
     );
