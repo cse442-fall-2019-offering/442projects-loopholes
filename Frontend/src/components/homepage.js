@@ -45,7 +45,7 @@ class HomePage extends React.Component {
     ));
 
     return (
-      <div>
+      <div id={"home_page"}>
         <CardColumns>{cards}</CardColumns>
       </div>
     );

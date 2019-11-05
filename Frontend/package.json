@@ -6,7 +6,7 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "dotenv": "^8.2.0",
-    "eslint": "^6.5.1",
+    "eslint": "^6.6.0",
     "filepond": "^4.7.2",
     "filepond-plugin-file-validate-type": "^1.2.4",
     "filepond-plugin-image-preview": "^4.5.0",

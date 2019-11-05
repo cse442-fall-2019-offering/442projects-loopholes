@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44698adb-d4da-4a37-bf28-5ed99eb17998" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Frontend/node_modules/dotenv/types/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/node_modules/dotenv/types/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/node_modules/eslint/lib/shared/runtime-info.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/src/components/uploadWait.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/uploadpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/uploadpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/firebase/ImageUploader.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/firebase/ImageUploader.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,6 +75,7 @@
       <workItem from="1571120345432" duration="955000" />
       <workItem from="1571353990219" duration="163000" />
       <workItem from="1571354174985" duration="5530000" />
+      <workItem from="1572924515494" duration="3823000" />
     </task>
     <servers />
   </component>

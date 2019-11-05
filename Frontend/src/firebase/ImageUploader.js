@@ -1,5 +1,6 @@
 import { firebaseStorage } from "./index";
 import * as Endpoint from "../constants/Endpoint";
+import UploadWait from "../components/uploadWait.js"
 
 /**
  * upload a single image to firebaseStorage
@@ -56,9 +57,10 @@ export default class ImageUploader {
           })
         }
       );
-      alert(
-        "Image successfully uploaded, please return to the homepage to view it!"
-      );
+      // alert(
+      //   "Image successfully uploaded, please return to the homepage to view it!"
+      // );
+      UploadWait.endLoad();
     } catch (error) {
       console.log("Unable to upload file: " + this.fileName + "\n" + error);
       alert("Uploading image failed!");

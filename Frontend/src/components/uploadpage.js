@@ -5,14 +5,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import UploadWait from "./uploadWait.js";
+import {Link} from 'react-router-dom';
 
 class UploadPage extends React.Component {
-  state = {
+
+    state = {
     eventTitle: "",
     eventDate: "",
     eventTime: "",
     eventLocation: ""
-  };
+    };
 
   choseFileHandler = event => {
     this._imgToUpload = event.target.files[0];
@@ -36,7 +39,9 @@ class UploadPage extends React.Component {
       eventTime,
       eventLocation
     );
+    let waiter = new UploadWait();
     sender.sendImageToFirebaseStorage();
+    waiter.startLoad();
   };
 
   onTextInputChange = (key, e) => {
@@ -46,7 +51,7 @@ class UploadPage extends React.Component {
   render() {
     const { eventTitle, eventDate, eventTime, eventLocation } = this.state;
     return (
-      <div className={"page_content"}>
+      <div className={"page_content"} id={"upload_page"}>
         <h1> Upload a File to Make a Post </h1><br></br>
         <input type="file" onChange={this.choseFileHandler} /><br></br>
         <br></br>
@@ -108,7 +113,7 @@ class UploadPage extends React.Component {
             </Form.Row>
         </Form>
         <br></br>
-        <button onClick={this.startUpload}>Upload</button>
+          <button onClick={this.startUpload}>Upload</button>
       </div>
     );
   }
