@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Spinner from 'react-bootstrap/Spinner'
 import Button from 'react-bootstrap/Button'
 import {Link} from 'react-router-dom';
@@ -14,17 +14,28 @@ class UploadWait extends React.Component {
 
     constructor(props) {
         super(props);
+        this.resetState();
+    }
+
+    isWaiting() {
+        alert("WHY");
+        return this.state.progress.localeCompare("waiting") == 0;
+    }
+
+    resetState() {
+        alert("1");
         this.setState({progress: "waiting"});
+        alert("0");
     }
 
     startLoad() {
-        alert("hi");
+        //alert("hi");
         this.setState({progress: "loading"});
-        alert(this.state.progress);
+        alert("start");
     }
 
     endLoad(i) {
-        if (i === 0) {
+        if (i == 0) {
             this.setState({progress: "done"});
             alert("Nice")
         } else {
@@ -34,10 +45,10 @@ class UploadWait extends React.Component {
     }
 
     renderStatus() {
-        if (this.state.progress === "waiting") {
+        if (!(this.state.progress.localeCompare("waiting"))) {
             return null;
         }
-        if (this.state.progress === "loading") {
+        if (!(this.state.progress.localeCompare("loading"))) {
             return (
                 <div className={"load_overlay"}>
                     <Spinner animation="border" role="status">
@@ -45,7 +56,7 @@ class UploadWait extends React.Component {
                     </Spinner>
                 </div>
             );
-        } else if (this.state.progress === "done") {
+        } else if (!(this.state.progress.localeCompare("done"))) {
             return (
                 <Jumbotron fluid>
                     <Container>
@@ -57,19 +68,24 @@ class UploadWait extends React.Component {
                     </Container>
                 </Jumbotron>
             );
-        } else {
+        } else if (!(this.state.progress.localeCompare("failed"))) {
             return (
                 <Jumbotron fluid>
                     <Container>
                         <h1>Upload Failed</h1>
-                        <p> Please try uploading again! </p>
+                        <p> { this.state.progress } </p>
+                        <p> Try uploading again! </p>
                         <Link to="/CSE442-542/2019-Fall/cse-442i/upload">
-                            <Button variant="primary">Upload</Button>
+                            <Button onClick={this.resetState()}>Upload</Button>
+                        </Link>
+                        <Link to="/CSE442-542/2019-Fall/cse-442i/home">
+                            <Button onClick={this.resetState()}>Home</Button>
                         </Link>
                     </Container>
                 </Jumbotron>
             );
         }
+        return (<p> YEO </p>);
     }
 
 }
