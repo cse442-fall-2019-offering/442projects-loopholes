@@ -8,31 +8,35 @@ import Container from "react-bootstrap/Container";
 
 class UploadWait extends React.Component {
 
+    state = {
+        progress: "",
+    };
+
     constructor(props) {
         super(props);
-        this.state = {
-            progress: "waiting"
-        };
+        this.setState({progress: "waiting"});
     }
 
     startLoad() {
         alert("hi");
-        this.state.progress = "loading";
+        this.setState({progress: "loading"});
         alert(this.state.progress);
-        document.getElementById("root").style.height = "100%";
     }
 
     endLoad(i) {
-        if(i===0) {
-            this.state.progress = "done";
+        if (i === 0) {
+            this.setState({progress: "done"});
             alert("Nice")
         } else {
-            this.state.progress = "failed";
+            this.setState({progress: "failed"});
+            alert("Oh")
         }
-        document.getElementById("root").style.height = "0%";
     }
 
-    render() {
+    renderStatus() {
+        if (this.state.progress === "waiting") {
+            return null;
+        }
         if (this.state.progress === "loading") {
             return (
                 <div className={"load_overlay"}>
@@ -52,19 +56,20 @@ class UploadWait extends React.Component {
                         </Link>
                     </Container>
                 </Jumbotron>
-            )
+            );
+        } else {
+            return (
+                <Jumbotron fluid>
+                    <Container>
+                        <h1>Upload Failed</h1>
+                        <p> Please try uploading again! </p>
+                        <Link to="/CSE442-542/2019-Fall/cse-442i/upload">
+                            <Button variant="primary">Upload</Button>
+                        </Link>
+                    </Container>
+                </Jumbotron>
+            );
         }
-        return (
-            <Jumbotron fluid>
-                <Container>
-                    <h1>Upload Failed</h1>
-                    <p> Please try uploading again! </p>
-                    <Link to="/CSE442-542/2019-Fall/cse-442i/upload">
-                        <Button variant="primary">Upload</Button>
-                    </Link>
-                </Container>
-            </Jumbotron>
-        )
     }
 
 }
