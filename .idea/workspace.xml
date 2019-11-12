@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44698adb-d4da-4a37-bf28-5ed99eb17998" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/babel-loader/11bf9c0eccbd997c9edf54c536343a29.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/babel-loader/13fbef2ea63965af7e476cc6374b08ac.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/babel-loader/44035ed2bfe7164bc83395140c5c387b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/babel-loader/447542205092a4a4f45fa54c772ca1ab.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/babel-loader/53b39a7c7e7bf2dfae606fb284c842cc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/babel-loader/7ed2ff1d9d738b57f7f95104840eaf98.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/babel-loader/b890287a61db6889d3066c14c8467d9d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Frontend/node_modules/.cache/babel-loader/d6d60b7800683ce96d38711c781c9cec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/components/uploadWait.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/uploadWait.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/components/uploadpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/components/uploadpage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/src/firebase/ImageUploader.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/firebase/ImageUploader.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,6 +48,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RunDashboard">
@@ -69,7 +78,9 @@
       <workItem from="1571120345432" duration="955000" />
       <workItem from="1571353990219" duration="163000" />
       <workItem from="1571354174985" duration="5530000" />
-      <workItem from="1572924515494" duration="6179000" />
+      <workItem from="1572924515494" duration="7054000" />
+      <workItem from="1572983079783" duration="1067000" />
+      <workItem from="1573534264014" duration="756000" />
     </task>
     <servers />
   </component>

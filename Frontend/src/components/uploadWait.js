@@ -11,13 +11,15 @@ class UploadWait extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            progress: "done"
+            progress: "waiting"
         };
     }
 
     startLoad() {
+        alert("hi");
         this.state.progress = "loading";
-        document.getElementById("upload_page").style.height = "100%";
+        alert(this.state.progress);
+        document.getElementById("root").style.height = "100%";
     }
 
     endLoad(i) {
@@ -27,7 +29,7 @@ class UploadWait extends React.Component {
         } else {
             this.state.progress = "failed";
         }
-        document.getElementById("upload_page").style.height = "0%";
+        document.getElementById("root").style.height = "0%";
     }
 
     render() {
