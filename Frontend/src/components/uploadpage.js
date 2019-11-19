@@ -5,8 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import UploadWaitPage from "./uploadWaitPage.js";
+import WaitingPage from "./waitingPage.js";
 import Button from 'react-bootstrap/Button'
+import Link from "react-router-dom/modules/Link";
 
 class UploadPage extends React.Component {
 
@@ -21,7 +22,7 @@ class UploadPage extends React.Component {
     
     constructor(props) {
         super(props);
-        this.waiter = new UploadWaitPage();
+        this.waiter = new WaitingPage();
     }
 
     choseFileHandler = event => {
@@ -124,7 +125,11 @@ class UploadPage extends React.Component {
                     </Form.Row>
                 </Form>
                 <br/>
-                <Button onClick={this.startUpload}>Upload</Button>
+                <Link to="/CSE442-542/2019-Fall/cse-442i/home">
+                    <Button onClick={this.startUpload}>
+                        Upload
+                    </Button>
+                </Link>
             </div>
         );
     }

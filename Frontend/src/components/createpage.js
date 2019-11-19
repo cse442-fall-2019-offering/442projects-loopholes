@@ -18,9 +18,6 @@ class CreatePage extends React.Component{
                         Upload a File
                     </Button >
                 </Link >
-                <Button variant="primary" size="lg" block disabled>
-                    Create from Template (to be added)
-                </Button>
             </div>
         );
         }

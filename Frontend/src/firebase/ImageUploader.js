@@ -1,6 +1,6 @@
 import {firebaseStorage} from "./index";
 import * as Endpoint from "../constants/Endpoint";
-import UploadWaitPage from "../components/uploadWaitPage.js"
+import WaitingPage from "../components/waitingPage.js"
 
 /**
  * upload a single image to firebaseStorage

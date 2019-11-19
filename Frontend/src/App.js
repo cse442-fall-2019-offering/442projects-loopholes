@@ -5,6 +5,7 @@ import NavigationBar from "./components/navigationBar.js";
 import HomePage from "./components/homepage.js";
 import CreatePage from "./components/createpage.js";
 import UploadPage from "./components/uploadpage.js";
+import WaitingPage from "./components/waitingPage";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Route path="/CSE442-542/2019-Fall/cse-442i/home" component={HomePage}/>
             <Route path="/CSE442-542/2019-Fall/cse-442i/create" component={CreatePage}/>
             <Route path="/CSE442-542/2019-Fall/cse-442i/upload" component={UploadPage}/>
+            <Route path="/CSE442-542/2019-Fall/cse-442i/waiting" component={WaitingPage}/>
     </Router>
     )
   }
