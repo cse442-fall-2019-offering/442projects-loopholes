@@ -1,20 +1,12 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import NavigationBar from "./components/navigationBar.js";
-import HomePage from "./components/homepage.js";
-import CreatePage from "./components/createpage.js";
-import UploadPage from "./components/uploadpage.js";
-import Routes from "./routes.js";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import routes from "./routes.js";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { renderRoutes } from "react-router-config";
 
 function App() {
-    return (
-    <Router>
-          <NavigationBar/>
-            {renderRoutes(Routes)}
-    </Router>
-    )
-  }
+  return <Router>{renderRoutes(routes)}</Router>;
+}
+
 export default App;
