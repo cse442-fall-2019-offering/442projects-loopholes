@@ -1,6 +1,6 @@
 import {firebaseStorage} from "./index";
 import * as Endpoint from "../constants/Endpoint";
-import UploadWait from "../components/uploadWait.js"
+import UploadWaitPage from "../components/uploadWaitPage.js"
 
 /**
  * upload a single image to firebaseStorage
@@ -36,7 +36,7 @@ export default class ImageUploader {
         this.eventLocation = eventLocation;
     }
 
-    sendImageToFirebaseStorage = async (waiter) => {
+    sendImageToFirebaseStorage = async () => {
         try {
             const uploadTask = await firebaseStorage
                 .ref(`Images/${this.fileName}`)
@@ -60,11 +60,11 @@ export default class ImageUploader {
             // alert(
             //   "Image successfully uploaded, please return to the homepage to view it!"
             // );
-            waiter.endLoad(0);
+            return 0;
         } catch (error) {
             // console.log("Unable to upload file: " + this.fileName + "\n" + error);
             // alert("Uploading image failed!");
-            waiter.endLoad(1);
+            return 1;
         }
     };
 

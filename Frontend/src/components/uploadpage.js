@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import UploadWait from "./uploadWait.js";
+import UploadWaitPage from "./uploadWaitPage.js";
 import Button from 'react-bootstrap/Button'
 
 class UploadPage extends React.Component {
@@ -17,10 +17,11 @@ class UploadPage extends React.Component {
         eventLocation: ""
     };
 
-    waiter = new UploadWait();
+    waiter = null;
     
     constructor(props) {
         super(props);
+        this.waiter = new UploadWaitPage();
     }
 
     choseFileHandler = event => {
@@ -46,8 +47,8 @@ class UploadPage extends React.Component {
             eventLocation
         );
         this.waiter.startLoad();
-        sender.sendImageToFirebaseStorage(this.waiter);
-        alert(this.waiter.isWaiting());
+        let result = sender.sendImageToFirebaseStorage();
+        this.waiter.endLoad(result);
     };
 
     onTextInputChange = (key, e) => {
@@ -56,7 +57,7 @@ class UploadPage extends React.Component {
 
     renderSelector() {
         if ( !(this.waiter.isWaiting()) ) {
-            return null;
+            return (<p> DUH </p>);
         }
         const {eventTitle, eventDate, eventTime, eventLocation} = this.state;
         return (

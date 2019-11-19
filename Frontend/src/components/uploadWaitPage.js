@@ -6,10 +6,13 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 
 
-class UploadWait extends React.Component {
+class UploadWaitPage extends React.Component {
 
     state = {
-        progress: "",
+        waiting: true,
+        loading: false,
+        done: false,
+        failed: false
     };
 
     constructor(props) {
@@ -18,37 +21,50 @@ class UploadWait extends React.Component {
     }
 
     isWaiting() {
-        alert("WHY");
-        return this.state.progress.localeCompare("waiting") == 0;
+        alert("waiting");
+        return this.state.waiting;
     }
 
     resetState() {
-        alert("1");
-        this.setState({progress: "waiting"});
-        alert("0");
+        this.setState({
+                waiting: true,
+                loading: false,
+                done: false,
+                failed: false
+            });
+        alert("restarting");
     }
 
     startLoad() {
         //alert("hi");
-        this.setState({progress: "loading"});
+        this.setState({
+            waiting: false,
+            loading: true
+        });
         alert("start");
     }
 
     endLoad(i) {
-        if (i == 0) {
-            this.setState({progress: "done"});
+        if (i === 0) {
+            this.setState({
+                loading: false,
+                done: true
+            });
             alert("Nice")
         } else {
-            this.setState({progress: "failed"});
+            this.setState({
+                loading: false,
+                failed: true
+            });
             alert("Oh")
         }
     }
 
     renderStatus() {
-        if (!(this.state.progress.localeCompare("waiting"))) {
+        if (this.state.waiting) {
             return null;
         }
-        if (!(this.state.progress.localeCompare("loading"))) {
+        if (this.state.loading) {
             return (
                 <div className={"load_overlay"}>
                     <Spinner animation="border" role="status">
@@ -56,7 +72,7 @@ class UploadWait extends React.Component {
                     </Spinner>
                 </div>
             );
-        } else if (!(this.state.progress.localeCompare("done"))) {
+        } else if (this.state.done) {
             return (
                 <Jumbotron fluid>
                     <Container>
@@ -68,7 +84,7 @@ class UploadWait extends React.Component {
                     </Container>
                 </Jumbotron>
             );
-        } else if (!(this.state.progress.localeCompare("failed"))) {
+        } else if (this.state.failed) {
             return (
                 <Jumbotron fluid>
                     <Container>
@@ -88,6 +104,12 @@ class UploadWait extends React.Component {
         return (<p> YEO </p>);
     }
 
+    render() {
+        return(
+          this.renderStatus()
+        );
+    }
+
 }
 
-export default UploadWait;
+export default UploadWaitPage;
