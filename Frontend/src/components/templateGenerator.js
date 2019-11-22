@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {Button, Modal} from 'react-bootstrap';
 import 'filepond/dist/filepond.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,6 +11,8 @@ export default function TemplateGenerator(){
     const [topText, setTopText] = useState('')
     const [bottomText, setBottomText] = useState('')
     const [isMemeGenerated, setIsMemeGenerated] = useState(false)
+
+    let contentContainerRef = useRef(null)
 
    function addText(e) {
     if(e.target.name === 'topText'){
@@ -42,12 +44,11 @@ export default function TemplateGenerator(){
             onChange={addText}
           />
 
-          <div className="editImageField">
-            <h1>{topText}</h1>
+          <div className="editImageField" ref={contentContainerRef}>
+            <h1 style={{position: 'absolute'}}>{topText}</h1>
 
-            <h2>{bottomText}</h2>
-
-            <img style={{maxWidth: 700}}
+            <img
+              style={{maxWidth: 700}}
               src={currentImage}/>
 
               <label
@@ -55,6 +56,8 @@ export default function TemplateGenerator(){
                   Upload
                 <input type="file" accept=".jpg, .jpeg, .png" onChange={uploadImage} hidden/>
               </label>
+
+              <h2 style={{position: 'relative'}}>{bottomText}</h2>
 
             </div>
       </div>
