@@ -5,6 +5,7 @@
   "homepage": "/CSE442-542/2019-Fall/cse-442i/",
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "dom-to-image": "^2.6.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.5.1",
     "filepond": "^4.7.2",

@@ -1,24 +1,18 @@
 import React, {useState, useRef} from 'react';
 import {Button, Modal} from 'react-bootstrap';
+import 'filepond/dist/filepond.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //link - /CSE442-542/2019-Fall/cse-442i/template
-class TemplateGenerator extends React.Component{
+export default function TemplateGenerator(){
 
-  constructor(props){
-    super(props);
-    this.state{
-      image: this.props.image
-      currentImage: this.props.currentImage
-      topText: this.props.topText
-      bottomText: this.props.bottomText
-      imageGenerated: this.props.imageGenerated
-    }
-  }
+    const [images, setImages] = useState([])
+    const [currentImage, setCurrentImage] = useState(require('../components/testimages/uploadImagePlaceholder.png'))
+    const [topText, setTopText] = useState('')
+    const [bottomText, setBottomText] = useState('')
+    const [isMemeGenerated, setIsMemeGenerated] = useState(false)
 
-  let contentContainerRef = useRef(null)
-  let resultContainerRef = useRef(null)
-
-  function addText(e){
+   function addText(e) {
     if(e.target.name === 'topText'){
       setTopText(e.target.value)
     }else{
@@ -26,22 +20,22 @@ class TemplateGenerator extends React.Component{
     }
   }
 
-  function uploadImage(){
-    setCurrentImage(window.URL.createObjectUrl(e.target.files[0]))
+  function uploadImage(event){
+  //  setCurrentImage(window.URL.createObjectURL(event.target.files[0]))
+    setCurrentImage(URL.createObjectURL(event.target.files[0]))
+//    setActiveImage(window.URL.createObjectURL(event.target.files[0]))
   }
 
-  function generateImage(){
-
-  }
-
-  render(){
     return(
       <div>
-
+        <img src={currentImage}/>
+        <label
+        variant="primary"
+        >
+            Upload
+          <input type="file" accept=".jpg, .jpeg, .png" onChange={uploadImage} hidden/>
+        </label>
 
       </div>
     )
   }
-}
-
-export default TemplateGenerator;
