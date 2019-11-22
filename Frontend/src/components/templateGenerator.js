@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import {Button, Modal} from 'react-bootstrap';
 import 'filepond/dist/filepond.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,21 +21,42 @@ export default function TemplateGenerator(){
   }
 
   function uploadImage(event){
-  //  setCurrentImage(window.URL.createObjectURL(event.target.files[0]))
     setCurrentImage(URL.createObjectURL(event.target.files[0]))
-//    setActiveImage(window.URL.createObjectURL(event.target.files[0]))
   }
 
     return(
       <div>
-        <img src={currentImage}/>
-        <label
-        variant="primary"
-        >
-            Upload
-          <input type="file" accept=".jpg, .jpeg, .png" onChange={uploadImage} hidden/>
-        </label>
+        <input
+            name="topText"
+            placeholder="Top Text"
+            type="text"
+            value={topText}
+            onChange={addText}
+          />
 
+        <input
+            name="bottomText"
+            placeholder="Bottom Text"
+            type="text"
+            value={bottomText}
+            onChange={addText}
+          />
+
+          <div className="editImageField">
+            <h1>{topText}</h1>
+
+            <h2>{bottomText}</h2>
+
+            <img style={{maxWidth: 700}}
+              src={currentImage}/>
+
+              <label
+              variant="primary"  >
+                  Upload
+                <input type="file" accept=".jpg, .jpeg, .png" onChange={uploadImage} hidden/>
+              </label>
+
+            </div>
       </div>
     )
   }
