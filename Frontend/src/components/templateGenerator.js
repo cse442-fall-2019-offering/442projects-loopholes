@@ -57,7 +57,7 @@ export default function TemplateGenerator(){
                 <input type="file" accept=".jpg, .jpeg, .png" onChange={uploadImage} hidden/>
               </label>
 
-              <h2 style={{bottom: 200}}>{bottomText}</h2>
+              <h2 style={{position: 'relative', bottom: 60}}>{bottomText}</h2>
 
             </div>
       </div>
