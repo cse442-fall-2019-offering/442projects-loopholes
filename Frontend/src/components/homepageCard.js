@@ -7,11 +7,22 @@ import Button from "react-bootstrap/Button";
 
 class UpvoteButton extends React.Component{
     state={
-        origVotes : 2,
-        updateVotes : 2,
+        origVotes : 0,
+        updateVotes : 0,
+        vote: " upvotes",
         bgColor: 'outline-primary'
     };
-
+    setVotes=()=>{
+        if(this.state.updateVotes > 1 || this.state.updateVotes === 1){
+            this.setState({ 
+                vote: " upvotes"
+            });
+        }else if(this.state.updateVotes === 0){
+            this.setState({ 
+                vote: " upvote"
+            });
+        }
+    };
     updateVotesHandler=(event)=> {
         event.preventDefault();
         event.stopPropagation();
@@ -20,12 +31,13 @@ class UpvoteButton extends React.Component{
                 updateVotes: this.state.updateVotes + 1,
                 bgColor: 'primary'
             });
-            
+            this.setVotes();
         }else{
             this.setState({ 
                 updateVotes: this.state.origVotes,
                 bgColor: 'outline-primary'
             });
+            this.setVotes();
         }
     };
 
@@ -35,7 +47,7 @@ class UpvoteButton extends React.Component{
             size="sm"
             variant={this.state.bgColor}
             onClick={e=>this.updateVotesHandler(e)}
-            >{("" + this.state.updateVotes + " upvotes")}</Button>
+            >{("" + this.state.updateVotes + this.state.vote)}</Button>
         );
     };
 }
