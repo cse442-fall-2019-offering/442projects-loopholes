@@ -23,7 +23,7 @@ export default class FilterPosts {
   public filterIn(posts, searchString) {
     let filteredPosts = new Set();
     for (let metadata of posts) {
-      this.filterInHelper(posts, searchString, filteredPosts);
+      this.filterInHelper(metadata, searchString, filteredPosts);
     }
     return Array.from(filteredPosts);
   }
