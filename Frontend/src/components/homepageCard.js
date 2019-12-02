@@ -24,20 +24,17 @@ const HomepageCard = props => {
       </Nav>
       <Card.Body>
         <Card.Title>
-          {eventTitle ? eventTitle : "Untitled"}
+          {eventTitle}
           <br></br>
           <br></br>
           <small>
-            <div className="font-weight-bold">Date:</div>{" "}
-            {eventDate ? eventDate : "N/A"}
+            <div className="font-weight-bold">Date:</div> {eventDate}
             <br></br>
             <br></br>
-            <div className="font-weight-bold">Time:</div>{" "}
-            {eventTime ? eventTime : "N/A"}
+            <div className="font-weight-bold">Time:</div> {eventTime}
             <br></br>
             <br></br>
-            <div className="font-weight-bold">Place:</div>{" "}
-            {eventLocation ? eventLocation : "N/A"}
+            <div className="font-weight-bold">Place:</div> {eventLocation}
           </small>
         </Card.Title>
       </Card.Body>
@@ -54,10 +51,10 @@ const HomepageCard = props => {
 };
 
 HomepageCard.defaultProps = {
-  title: "Untitled",
-  date: "N/A",
-  time: "N/A",
-  place: "N/A",
+  eventTitle: "Untitled",
+  eventDate: "N/A",
+  eventTime: "N/A",
+  eventPlace: "N/A",
   zoomed: false
 };
 

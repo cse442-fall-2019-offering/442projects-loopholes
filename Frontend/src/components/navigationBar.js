@@ -25,10 +25,6 @@ const NavigationBar = ({ route }) => {
             <NavDropdown.Item href="#action/3.1">Date</NavDropdown.Item>
           </NavDropdown>
         </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-primary">Search</Button>
-        </Form>
       </Navbar>
       {renderRoutes(route.routes)}
     </div>
