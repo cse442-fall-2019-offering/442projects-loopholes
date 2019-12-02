@@ -8,16 +8,16 @@ const routes = [
     component: NavigationBar,
     routes: [
       {
-        path: "/",
+        path: "/CSE442-542/2019-Fall/cse-442i/",
         exact: true,
         component: HomePage
       },
       {
-        path: "/create",
+        path: "/CSE442-542/2019-Fall/cse-442i/create",
         component: CreatePage
       },
       {
-        path: "/upload",
+        path: "/CSE442-542/2019-Fall/cse-442i/upload",
         component: UploadPage
       }
     ]
