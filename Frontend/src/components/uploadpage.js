@@ -20,6 +20,7 @@ const UploadForm = ({
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = event => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -45,7 +46,7 @@ const UploadForm = ({
   };
 
   return (
-    <Form noValidate validated={validated}>
+    <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Form.Row>
         <Form.Group as={Col} md="4" controlId="validationCustom01">
           <Form.Label>Title</Form.Label>
@@ -109,7 +110,7 @@ const UploadForm = ({
           </Form.Control.Feedback>
         </Form.Group>
       </Form.Row>
-      <Button onClick={handleSubmit}>Upload</Button>
+      <Button type="submit">Upload</Button>
     </Form>
   );
 };
