@@ -87,7 +87,6 @@ class HomePage extends React.Component {
             Search
           </Button>
         </Form>
-
         <CardColumns>{cards}</CardColumns>
       </div>
     );

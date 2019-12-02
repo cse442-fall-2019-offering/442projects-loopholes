@@ -6,48 +6,29 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { renderRoutes } from "react-router-config";
 
-class NavigationBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      page: this.props.page
-    };
-  }
-  render() {
-    return (
-      <div>
-        <Navbar
-          sticky="top"
-          variant="dark"
-          expand="lg"
-          className="NavigationBar"
-        >
-          <Navbar.Brand href="https://www-student.cse.buffalo.edu/CSE442-542/2019-Fall/cse-442i/">
-            UBulletin
-          </Navbar.Brand>
-          <Nav className="mr-auto">
-            <Link
-              className="NavigationBarLink"
-              to="/CSE442-542/2019-Fall/cse-442i/home"
-            >
-              Home
-            </Link>
-            <Link
-              className="NavigationBarLink"
-              to="/CSE442-542/2019-Fall/cse-442i/create"
-            >
-              Create
-            </Link>
+const NavigationBar = ({ route }) => {
+  return (
+    <div>
+      <Navbar sticky="top" variant="dark" expand="lg" className="NavigationBar">
+        <Navbar.Brand href="/">UBulletin</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Link className="NavigationBarLink" to="/">
+            Home
+          </Link>
+          <Link className="NavigationBarLink" to="/create">
+            Create
+          </Link>
 
-            <NavDropdown title="Sort" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Date</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar>
-      </div>
-    );
-  }
-}
+          <NavDropdown title="Sort" id="basic-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">Date</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+      </Navbar>
+      {renderRoutes(route.routes)}
+    </div>
+  );
+};
 
 export default NavigationBar;
