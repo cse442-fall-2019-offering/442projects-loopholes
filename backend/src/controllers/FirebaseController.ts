@@ -18,6 +18,7 @@ export default class FirebaseController {
     response: Response,
     _next: NextFunction
   ): Promise<void> => {
+    console.log(request.body);
     const {
       image_link,
       event_title,
