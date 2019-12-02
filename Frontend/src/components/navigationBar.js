@@ -12,12 +12,20 @@ const NavigationBar = ({ route }) => {
   return (
     <div>
       <Navbar sticky="top" variant="dark" expand="lg" className="NavigationBar">
-        <Navbar.Brand href="/">UBulletin</Navbar.Brand>
+        <Navbar.Brand href="/CSE442-542/2019-Fall/cse-442i/">
+          UBulletin
+        </Navbar.Brand>
         <Nav className="mr-auto">
-          <Link className="NavigationBarLink" to="/">
+          <Link
+            className="NavigationBarLink"
+            to="/CSE442-542/2019-Fall/cse-442i/"
+          >
             Home
           </Link>
-          <Link className="NavigationBarLink" to="/create">
+          <Link
+            className="NavigationBarLink"
+            to="/CSE442-542/2019-Fall/cse-442i/create"
+          >
             Create
           </Link>
 

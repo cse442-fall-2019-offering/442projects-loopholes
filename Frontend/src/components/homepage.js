@@ -49,7 +49,18 @@ class HomePage extends React.Component {
     this.setState({ [key]: value });
   };
 
+  _handleKeyDown = e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      this.searchForPosts();
+    }
+  };
+
   onSearchButtonClick = () => {
+    this.searchForPosts();
+  };
+
+  searchForPosts = () => {
     try {
       fetch(process.env.REACT_APP_BACKEND_API + Endpoint.SEARCH_FOR_POSTS, {
         method: "POST",
@@ -79,6 +90,7 @@ class HomePage extends React.Component {
           <FormControl
             type="text"
             onChange={e => this.changeHandler("searchValue", e.target.value)}
+            onKeyDown={this._handleKeyDown}
             placeholder="Search for posts"
             value={this.state.searchValue}
             className="mr-sm-2"

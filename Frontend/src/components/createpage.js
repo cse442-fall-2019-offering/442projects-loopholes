@@ -13,7 +13,7 @@ class CreatePage extends React.Component {
   render() {
     return (
       <div className={"page_content"}>
-        <Link to="/upload">
+        <Link to="/CSE442-542/2019-Fall/cse-442i/upload">
           <Button variant="primary" size="lg" block>
             Upload a File
           </Button>
