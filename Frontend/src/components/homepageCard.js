@@ -51,10 +51,10 @@ const HomepageCard = props => {
 };
 
 HomepageCard.defaultProps = {
-  title: "Untitled",
-  date: "N/A",
-  time: "N/A",
-  place: "N/A",
+  eventTitle: "Untitled",
+  eventDate: "N/A",
+  eventTime: "N/A",
+  eventPlace: "N/A",
   zoomed: false
 };
 

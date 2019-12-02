@@ -3,13 +3,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CardColumns from "react-bootstrap/CardColumns";
 import HomepageCard from "./homepageCard";
 import * as Endpoint from "../constants/Endpoint";
+import Form from "react-bootstrap/Form";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
 
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      cardMetadatas: [],
+      displayedCardMetadatas: [],
       page: this.props.page,
-      cardMetadatas: []
+      searchValue: "",
+      imageLinks: []
     };
   }
 
@@ -35,17 +41,64 @@ class HomePage extends React.Component {
             imageLink: image_link
           };
         });
-        this.setState({ cardMetadatas });
+        this.setState({ cardMetadatas, displayedCardMetadatas: cardMetadatas });
       });
   }
 
+  changeHandler = (key, value) => {
+    this.setState({ [key]: value });
+  };
+
+  _handleKeyDown = e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      this.searchForPosts();
+    }
+  };
+
+  onSearchButtonClick = () => {
+    this.searchForPosts();
+  };
+
+  searchForPosts = () => {
+    try {
+      fetch(process.env.REACT_APP_BACKEND_API + Endpoint.SEARCH_FOR_POSTS, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          search_value: this.state.searchValue,
+          card_metadatas: this.state.cardMetadatas
+        })
+      })
+        .then(res => res.json())
+        .then(data => {
+          this.setState({ displayedCardMetadatas: data });
+        });
+    } catch (error) {
+      alert("Search failed.");
+    }
+  };
+
   render() {
-    let cards = this.state.cardMetadatas.map(metadata => (
+    let cards = this.state.displayedCardMetadatas.map(metadata => (
       <HomepageCard {...metadata} />
     ));
 
     return (
       <div>
+        <Form className="ml-2 mt-2 mb-2" inline>
+          <FormControl
+            type="text"
+            onChange={e => this.changeHandler("searchValue", e.target.value)}
+            onKeyDown={this._handleKeyDown}
+            placeholder="Search for posts"
+            value={this.state.searchValue}
+            className="mr-sm-2"
+          />
+          <Button onClick={this.onSearchButtonClick} variant="outline-primary">
+            Search
+          </Button>
+        </Form>
         <CardColumns>{cards}</CardColumns>
       </div>
     );
