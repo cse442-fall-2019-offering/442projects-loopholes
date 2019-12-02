@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import QueryFirebaseDatabase from "../querying/QueryFirebaseDatabase";
 import MetadataUploader from "../uploading/MetadataUploader";
+import FilterPosts from "../querying/FilterPosts";
 
 export default class FirebaseController {
   public getHomepageImageMetadata = async (
@@ -18,8 +19,13 @@ export default class FirebaseController {
     response: Response,
     _next: NextFunction
   ): Promise<void> => {
-    const body = request.body;
-    console.log(body);
+    const { search_value, card_metadatas } = request.body;
+    const filteredPosts = new FilterPosts().filterIn(
+      card_metadatas,
+      search_value
+    );
+    console.log(filteredPosts);
+    response.status(200).json(filteredPosts);
   };
 
   public uploadImageMetadata = async (

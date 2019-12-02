@@ -12,6 +12,7 @@ class HomePage extends React.Component {
     super(props);
     this.state = {
       cardMetadatas: [],
+      displayedCardMetadatas: [],
       page: this.props.page,
       searchValue: "",
       imageLinks: []
@@ -40,7 +41,7 @@ class HomePage extends React.Component {
             imageLink: image_link
           };
         });
-        this.setState({ cardMetadatas });
+        this.setState({ cardMetadatas, displayedCardMetadatas: cardMetadatas });
       });
   }
 
@@ -57,14 +58,18 @@ class HomePage extends React.Component {
           search_value: this.state.searchValue,
           card_metadatas: this.state.cardMetadatas
         })
-      });
+      })
+        .then(res => res.json())
+        .then(data => {
+          this.setState({ displayedCardMetadatas: data });
+        });
     } catch (error) {
       alert("Search failed.");
     }
   };
 
   render() {
-    let cards = this.state.cardMetadatas.map(metadata => (
+    let cards = this.state.displayedCardMetadatas.map(metadata => (
       <HomepageCard {...metadata} />
     ));
 
