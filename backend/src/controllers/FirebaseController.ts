@@ -13,6 +13,15 @@ export default class FirebaseController {
     response.status(200).json(queryFirebaseDatabase.getDataSnapshot());
   };
 
+  public searchForPosts = async (
+    request: Request,
+    response: Response,
+    _next: NextFunction
+  ): Promise<void> => {
+    const body = request.body;
+    console.log(body);
+  };
+
   public uploadImageMetadata = async (
     request: Request,
     response: Response,
