@@ -15,7 +15,7 @@ export default function TemplateGenerator(){
     const [isMemeGenerated, setIsMemeGenerated] = useState(false)
 
   let contentContainerRef = useRef(null)
-  let resultContainerRef = useRef(null)
+
 
    function addText(e) {
     if(e.target.name === 'topText'){
@@ -34,14 +34,9 @@ export default function TemplateGenerator(){
   }
 
   function handlePosterGeneration() {
-    if (resultContainerRef.current.childNodes.length > 0) {
-      resultContainerRef.current.removeChild(resultContainerRef.current.childNodes[0])
-    }
-
     domtoimage.toPng(contentContainerRef.current).then((dataUrl) => {
       const img = new Image()
       img.src = dataUrl
-      resultContainerRef.current.appendChild(img)
 
       let sender = new ImageUploader(img)
       sender.sendImageToFirebaseStorage();
@@ -86,8 +81,6 @@ export default function TemplateGenerator(){
               src={currentImage}/>
 
               <h2 style={{position: 'relative', bottom: 60}}>{bottomText}</h2>
-
-              <div ref={resultContainerRef}></div>
 
             </div>
       </div>
