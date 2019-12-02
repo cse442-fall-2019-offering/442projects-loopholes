@@ -67,25 +67,25 @@ export default function TemplateGenerator(){
             onChange={addText}
           />
 
+          <label
+          variant="primary"  >
+              Upload
+            <input type="file" accept=".jpg, .jpeg, .png" onChange={uploadImage} hidden/>
+          </label>
+
+          <button
+          onClick={handlePosterGeneration}>
+            Create post
+          </button>
+
           <div className="editImageField" ref={contentContainerRef}>
-            <h1 style={{position: 'absolute'}}>{topText}</h1>
+            <h1 style={{position: 'relative', bottom: -90}}>{topText}</h1>
 
             <img
-              style={{maxWidth: 600}}
+              style={{maxWidth: 600, paddingTop: 15}}
               src={currentImage}/>
 
-              <label
-              variant="primary"  >
-                  Upload
-                <input type="file" accept=".jpg, .jpeg, .png" onChange={uploadImage} hidden/>
-              </label>
-
               <h2 style={{position: 'relative', bottom: 60}}>{bottomText}</h2>
-
-              <button
-              onClick={handlePosterGeneration}>
-                Create post
-              </button>
 
               <div ref={resultContainerRef}></div>
 
