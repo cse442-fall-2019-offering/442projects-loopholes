@@ -60,10 +60,12 @@ export default class ImageUploader {
             upload_time_epoch: Date.now()
           })
         }
-      );
-      alert(
-        "Image successfully uploaded, please return to the homepage to view it!"
-      );
+      ).then(() => {
+        let elem = document.createElement("a");
+        elem.href =
+          "https://www-student.cse.buffalo.edu/CSE442-542/2019-Fall/cse-442i/";
+        elem.click();
+      });
     } catch (error) {
       console.log("Unable to upload file: " + this.fileName + "\n" + error);
       alert("Uploading image failed!");
