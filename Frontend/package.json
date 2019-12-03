@@ -5,6 +5,8 @@
   "homepage": "/CSE442-542/2019-Fall/cse-442i/",
   "dependencies": {
     "bootstrap": "^4.3.1",
+    "dom-to-image": "^2.6.0",
+    "dom-to-image-more": "^2.8.0",
     "dotenv": "^8.2.0",
     "eslint": "^6.5.1",
     "filepond": "^4.7.2",
@@ -16,6 +18,7 @@
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.9.0",
     "react-filepond": "^7.0.1",
+    "react-router-config": "^5.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.1",
     "typescript": "^3.6.4",

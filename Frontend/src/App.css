@@ -43,6 +43,16 @@ a:hover{
   color: #FFFCF9;
 }
 
+h1,
+h2{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 48px;
+  text-transform: uppercase;
+  color: #fff;
+  /* text-shadow: 0px 0px 2px black; */
+  -webkit-text-stroke: 3px black;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
