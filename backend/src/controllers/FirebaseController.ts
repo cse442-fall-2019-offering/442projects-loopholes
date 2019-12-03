@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import QueryFirebaseDatabase from "../querying/QueryFirebaseDatabase";
 import MetadataUploader from "../uploading/MetadataUploader";
+import FilterPosts from "../querying/FilterPosts";
 
 export default class FirebaseController {
   public getHomepageImageMetadata = async (
@@ -13,16 +14,49 @@ export default class FirebaseController {
     response.status(200).json(queryFirebaseDatabase.getDataSnapshot());
   };
 
+  public searchForPosts = async (
+    request: Request,
+    response: Response,
+    _next: NextFunction
+  ): Promise<void> => {
+    const { search_value, card_metadatas } = request.body;
+    const filteredPosts = new FilterPosts().filterIn(
+      card_metadatas,
+      search_value
+    );
+    console.log(filteredPosts);
+    response.status(200).json(filteredPosts);
+  };
+
   public uploadImageMetadata = async (
     request: Request,
     response: Response,
     _next: NextFunction
   ): Promise<void> => {
-    const { image_link }: { image_link: string } = request.body;
+    console.log(request.body);
+    const {
+      image_link,
+      event_title,
+      event_date,
+      event_time,
+      event_location
+    }: {
+      image_link: string;
+      event_title: string;
+      event_date: string;
+      event_time: string;
+      event_location: string;
+    } = request.body;
     const post_id: number = await this.getPostId();
     const currentTimestamp = this.getCurrentTimestamp();
 
-    const imageMetadata = {
+    const metadata = {
+      event_info: {
+        title: event_title,
+        date: event_date,
+        time: event_time,
+        location: event_location
+      },
       image_link: image_link,
       post_id: post_id,
       tags: false,
@@ -37,7 +71,7 @@ export default class FirebaseController {
       }
     };
     const metadataUploder = new MetadataUploader();
-    metadataUploder.pushToDatabase(imageMetadata, post_id);
+    metadataUploder.pushToDatabase(metadata, post_id);
     response.sendStatus(201);
   };
 
