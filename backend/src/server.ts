@@ -12,14 +12,16 @@ const PORT = process.env.UBULLETIN_BACKEND_PORT || 4422;
 const app = new App();
 
 /* Used for running on localhost. */
-/*app.run().then(app => {
+app.run().then(app => {
   app.app.listen(PORT, () => {});
-});*/
+});
 
 // Used for running on cheshire
+/*
 const fs = require('fs');
 const https = require('https');
 https.createServer({
   key: fs.readFileSync(process.env.HTTPS_KEY),
-  cert: fs.readFileSync(process.env.HTTPS_CERT) 
+  cert: fs.readFileSync(process.env.HTTPS_CERT)
 }, app.app).listen(PORT, () => {app.run()});
+*/
