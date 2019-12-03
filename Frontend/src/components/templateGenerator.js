@@ -171,8 +171,6 @@ export default function TemplateGenerator() {
         <Button type="submit">Upload</Button>
       </Form>
 
-      <button onClick={handlePosterGeneration}>Create post</button>
-
       <div className="editImageField" ref={contentContainerRef}>
         <h1 style={{ position: "relative", bottom: -90 }}>{topText}</h1>
 
