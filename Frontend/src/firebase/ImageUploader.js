@@ -52,7 +52,12 @@ export default class ImageUploader {
             event_title: this.eventTitle,
             event_date: this.eventDate,
             event_time: this.eventTime,
-            event_location: this.eventLocation
+            event_location: this.eventLocation,
+            event_time_epoch: this.getEventEpochTime(
+              this.eventDate,
+              this.eventTime
+            ),
+            upload_time_epoch: Date.now()
           })
         }
       );
@@ -65,6 +70,18 @@ export default class ImageUploader {
     }
   };
 
+  /**
+   * {@parm event_date} the event time in string
+   * @return an epoch time of eventTime
+   */
+  getEventEpochTime = (eventDay, startTime) => {
+    // get the time of day in milliseconds first
+    let timeArray = startTime.split(":");
+    let timeOfDay =
+      (Number(timeArray[0]) * 3600 + Number(timeArray[1]) * 60) * 1000;
+    // then add it to the epoch time of the event date
+    return new Date(eventDay).getTime() + timeOfDay;
+  };
   /** @return a link to the image on firebase that will be stored in the
    * image metadata.
    */
