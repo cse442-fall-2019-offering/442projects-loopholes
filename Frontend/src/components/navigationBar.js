@@ -28,10 +28,6 @@ const NavigationBar = ({ route }) => {
           >
             Create
           </Link>
-
-          <NavDropdown title="Sort" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Date</NavDropdown.Item>
-          </NavDropdown>
         </Nav>
       </Navbar>
       {renderRoutes(route.routes)}
