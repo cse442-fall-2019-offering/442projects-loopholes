@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import QueryFirebaseDatabase from "../querying/QueryFirebaseDatabase";
 import MetadataUploader from "../uploading/MetadataUploader";
 import FilterPosts from "../querying/FilterPosts";
+import SortPosts from "../querying/SortPosts";
 
 export default class FirebaseController {
   public getHomepageImageMetadata = async (
@@ -33,8 +34,14 @@ export default class FirebaseController {
     response: Response,
     _next: NextFunction
   ): Promise<void> => {
-    const { sort_type } = request.body;
-    console.log(sort_type);
+    const { card_metadatas, sort_type } = request.body;
+    let sortedPosts = [];
+    if (sort_type === "eventDate") {
+      sortedPosts = new SortPosts().sortEventTime(card_metadatas);
+    } else if (sort_type === "uploadDate") {
+      sortedPosts = new SortPosts().sortNewest(card_metadatas);
+    }
+    response.status(200).json(sortedPosts);
   };
 
   public uploadImageMetadata = async (

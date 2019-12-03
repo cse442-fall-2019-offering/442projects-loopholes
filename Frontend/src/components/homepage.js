@@ -6,6 +6,8 @@ import * as Endpoint from "../constants/Endpoint";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import { Tooltip } from "react-bootstrap";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -27,7 +29,7 @@ class HomePage extends React.Component {
       .then(data => {
         if (data) {
           let cardMetadatas = Object.values(data).map(datum => {
-            const { event_info, image_link } = datum;
+            const { event_info, image_link, EventDate, UploadDate } = datum;
             if (event_info) {
               let { title, date, time, location } = event_info;
               return {
@@ -35,7 +37,9 @@ class HomePage extends React.Component {
                 eventTitle: title,
                 eventDate: date,
                 eventTime: time,
-                eventLocation: location
+                eventLocation: location,
+                eventDateEpoch: EventDate,
+                uploadDateEpoch: UploadDate
               };
             }
             return {
@@ -86,33 +90,35 @@ class HomePage extends React.Component {
     }
   };
 
-  sortByEventDate() {
+  sortByEventDate = () => {
     try {
       fetch(process.env.REACT_APP_BACKEND_API + Endpoint.SORT_POSTS, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          sort_type: "eventDate"
+          sort_type: "eventDate",
+          card_metadatas: this.state.cardMetadatas
         })
-      });
+      })
+        .then(res => res.json())
+        .then(data => this.setState({ displayedCardMetadatas: data }));
     } catch (error) {
       alert("Sorting failed.");
     }
-  }
+  };
 
-  sortByUploadDate() {
-    try {
-      fetch(process.env.REACT_APP_BACKEND_API + Endpoint.SORT_POSTS, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          sort_type: "uploadDate"
-        })
-      });
-    } catch (error) {
-      alert("Sorting failed.");
-    }
-  }
+  sortByUploadDate = () => {
+    fetch(process.env.REACT_APP_BACKEND_API + Endpoint.SORT_POSTS, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sort_type: "uploadDate",
+        card_metadatas: this.state.cardMetadatas
+      })
+    })
+      .then(res => res.json())
+      .then(data => this.setState({ displayedCardMetadatas: data }));
+  };
 
   render() {
     let cards = this.state.displayedCardMetadatas.map(metadata => (
@@ -135,16 +141,30 @@ class HomePage extends React.Component {
           </Button>
         </Form>
         <Form className="mb-2">
-          <Button
-            className="ml-2 mr-2"
-            onClick={this.sortByEventDate}
-            variant="outline-primary"
+          <OverlayTrigger
+            placement="right"
+            overlay={props => (
+              <Tooltip {...props}>Earliest Events First</Tooltip>
+            )}
           >
-            Sort By Event Date
-          </Button>
-          <Button onClick={this.sortByUploadDate} variant="outline-primary">
-            Sort By Upload Date
-          </Button>
+            <Button
+              className="ml-2 mr-2"
+              onClick={this.sortByEventDate}
+              variant="outline-primary"
+            >
+              Sort By Event Date
+            </Button>
+          </OverlayTrigger>
+          <OverlayTrigger
+            placement="right"
+            overlay={props => (
+              <Tooltip {...props}>Most Recently Uploaded</Tooltip>
+            )}
+          >
+            <Button onClick={this.sortByUploadDate} variant="outline-primary">
+              Sort By Upload Date
+            </Button>
+          </OverlayTrigger>
         </Form>
         <CardColumns>{cards}</CardColumns>
       </div>
