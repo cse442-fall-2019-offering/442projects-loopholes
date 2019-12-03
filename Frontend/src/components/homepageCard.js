@@ -3,6 +3,54 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import ZoomIn from "./zoomin";
+import Button from "react-bootstrap/Button";
+
+class UpvoteButton extends React.Component{
+    state={
+        origVotes : 0,
+        updateVotes : 0,
+        vote: " upvotes",
+        bgColor: 'outline-primary'
+    };
+    setVotes=()=>{
+        if(this.state.updateVotes > 1 || this.state.updateVotes === 1){
+            this.setState({ 
+                vote: " upvotes"
+            });
+        }else if(this.state.updateVotes === 0){
+            this.setState({ 
+                vote: " upvote"
+            });
+        }
+    };
+    updateVotesHandler=(event)=> {
+        event.preventDefault();
+        event.stopPropagation();
+        if(this.state.updateVotes === this.state.origVotes){
+            this.setState({ 
+                updateVotes: this.state.updateVotes + 1,
+                bgColor: 'primary'
+            });
+            this.setVotes();
+        }else{
+            this.setState({ 
+                updateVotes: this.state.origVotes,
+                bgColor: 'outline-primary'
+            });
+            this.setVotes();
+        }
+    };
+
+    render(){
+        return (
+            <Button
+            size="sm"
+            variant={this.state.bgColor}
+            onClick={e=>this.updateVotesHandler(e)}
+            >{("" + this.state.updateVotes + this.state.vote)}</Button>
+        );
+    };
+}
 
 const HomepageCard = props => {
   const {
@@ -13,6 +61,7 @@ const HomepageCard = props => {
     eventLocation,
     zoomed
   } = props;
+  
   return (
     <Card border="primary" bg="light" text="dark">
       <Nav>
@@ -43,7 +92,7 @@ const HomepageCard = props => {
           {!zoomed && <ZoomIn cardProps={props} />}
         </div>
         <div className="text-right">
-          <Form.Check text="dark" type="checkbox" label="Like" />
+            <UpvoteButton></UpvoteButton>
         </div>
       </Card.Footer>
     </Card>
