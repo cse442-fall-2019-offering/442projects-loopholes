@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/CSE442-542/2019-Fall/cse-442i/static/css/main.e7f0ad30.chunk.css",
-    "main.js": "/CSE442-542/2019-Fall/cse-442i/static/js/main.0024503c.chunk.js",
-    "main.js.map": "/CSE442-542/2019-Fall/cse-442i/static/js/main.0024503c.chunk.js.map",
+    "main.css": "/CSE442-542/2019-Fall/cse-442i/static/css/main.e7ffc1a5.chunk.css",
+    "main.js": "/CSE442-542/2019-Fall/cse-442i/static/js/main.8e502e7a.chunk.js",
+    "main.js.map": "/CSE442-542/2019-Fall/cse-442i/static/js/main.8e502e7a.chunk.js.map",
     "runtime~main.js": "/CSE442-542/2019-Fall/cse-442i/static/js/runtime~main.d375f2ff.js",
     "runtime~main.js.map": "/CSE442-542/2019-Fall/cse-442i/static/js/runtime~main.d375f2ff.js.map",
-    "static/css/2.237bc094.chunk.css": "/CSE442-542/2019-Fall/cse-442i/static/css/2.237bc094.chunk.css",
-    "static/js/2.3de8b056.chunk.js": "/CSE442-542/2019-Fall/cse-442i/static/js/2.3de8b056.chunk.js",
-    "static/js/2.3de8b056.chunk.js.map": "/CSE442-542/2019-Fall/cse-442i/static/js/2.3de8b056.chunk.js.map",
+    "static/css/2.72bed97b.chunk.css": "/CSE442-542/2019-Fall/cse-442i/static/css/2.72bed97b.chunk.css",
+    "static/js/2.e59a6a9d.chunk.js": "/CSE442-542/2019-Fall/cse-442i/static/js/2.e59a6a9d.chunk.js",
+    "static/js/2.e59a6a9d.chunk.js.map": "/CSE442-542/2019-Fall/cse-442i/static/js/2.e59a6a9d.chunk.js.map",
     "index.html": "/CSE442-542/2019-Fall/cse-442i/index.html",
-    "precache-manifest.612dcbf9cbb3cc5f7e6fcf5c527da02f.js": "/CSE442-542/2019-Fall/cse-442i/precache-manifest.612dcbf9cbb3cc5f7e6fcf5c527da02f.js",
+    "precache-manifest.deb9baa95343cf0734a2107e10644722.js": "/CSE442-542/2019-Fall/cse-442i/precache-manifest.deb9baa95343cf0734a2107e10644722.js",
     "service-worker.js": "/CSE442-542/2019-Fall/cse-442i/service-worker.js",
-    "static/css/2.237bc094.chunk.css.map": "/CSE442-542/2019-Fall/cse-442i/static/css/2.237bc094.chunk.css.map",
-    "static/css/main.e7f0ad30.chunk.css.map": "/CSE442-542/2019-Fall/cse-442i/static/css/main.e7f0ad30.chunk.css.map"
+    "static/css/2.72bed97b.chunk.css.map": "/CSE442-542/2019-Fall/cse-442i/static/css/2.72bed97b.chunk.css.map",
+    "static/css/main.e7ffc1a5.chunk.css.map": "/CSE442-542/2019-Fall/cse-442i/static/css/main.e7ffc1a5.chunk.css.map"
   }
 }
