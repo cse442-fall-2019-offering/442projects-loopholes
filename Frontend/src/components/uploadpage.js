@@ -8,7 +8,7 @@ import Row from "react-bootstrap/Row";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 
-const UploadForm = ({
+export const UploadForm = ({
   eventDate,
   eventLocation,
   eventTime,
