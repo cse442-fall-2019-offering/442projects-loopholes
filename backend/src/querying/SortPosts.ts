@@ -10,7 +10,7 @@ export default class SortPosts {
    */
    public sortNewest (posts) {
       return posts.sort(function(lhs, rhs) {
-        return lhs.UploadDate - rhs.UploadDate;
+        return rhs.UploadDate - lhs.UploadDate;
       });
   }
 
