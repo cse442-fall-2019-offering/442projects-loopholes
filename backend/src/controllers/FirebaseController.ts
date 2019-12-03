@@ -28,6 +28,15 @@ export default class FirebaseController {
     response.status(200).json(filteredPosts);
   };
 
+  public sortPosts = async (
+    request: Request,
+    response: Response,
+    _next: NextFunction
+  ): Promise<void> => {
+    const { sort_type } = request.body;
+    console.log(sort_type);
+  };
+
   public uploadImageMetadata = async (
     request: Request,
     response: Response,
@@ -39,16 +48,24 @@ export default class FirebaseController {
       event_title,
       event_date,
       event_time,
-      event_location
+      event_location,
+      event_time_epoch,
+      upload_time_epoch
     }: {
       image_link: string;
       event_title: string;
       event_date: string;
       event_time: string;
       event_location: string;
+      event_time_epoch: number;
+      upload_time_epoch: number;
     } = request.body;
     const post_id: number = await this.getPostId();
     const currentTimestamp = this.getCurrentTimestamp();
+
+    console.log(
+      `Event Time: ${event_time_epoch}, Upload Time: ${upload_time_epoch}`
+    );
 
     const metadata = {
       event_info: {
@@ -57,10 +74,12 @@ export default class FirebaseController {
         time: event_time,
         location: event_location
       },
+      EventDate: event_time_epoch,
       image_link: image_link,
       post_id: post_id,
       tags: false,
       timestamp: currentTimestamp,
+      UploadDate: upload_time_epoch,
       uploader_buffalo_id: "",
       uploader_is_anonymous: false,
       upvotes: {

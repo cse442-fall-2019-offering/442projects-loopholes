@@ -58,5 +58,7 @@ export default class App {
       .get(firebaseController.getHomepageImageMetadata);
 
     this.app.route("/searchForPosts").post(firebaseController.searchForPosts);
+
+    this.app.route("/sortPosts").post(firebaseController.sortPosts);
   }
 }

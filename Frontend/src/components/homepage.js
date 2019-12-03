@@ -25,23 +25,30 @@ class HomePage extends React.Component {
     )
       .then(res => res.json())
       .then(data => {
-        let cardMetadatas = Object.values(data).map(datum => {
-          const { event_info, image_link } = datum;
-          if (event_info) {
-            let { title, date, time, location } = event_info;
+        if (data) {
+          let cardMetadatas = Object.values(data).map(datum => {
+            const { event_info, image_link } = datum;
+            if (event_info) {
+              let { title, date, time, location } = event_info;
+              return {
+                imageLink: image_link,
+                eventTitle: title,
+                eventDate: date,
+                eventTime: time,
+                eventLocation: location
+              };
+            }
             return {
-              imageLink: image_link,
-              eventTitle: title,
-              eventDate: date,
-              eventTime: time,
-              eventLocation: location
+              imageLink: image_link
             };
-          }
-          return {
-            imageLink: image_link
-          };
-        });
-        this.setState({ cardMetadatas, displayedCardMetadatas: cardMetadatas });
+          });
+          this.setState({
+            cardMetadatas,
+            displayedCardMetadatas: cardMetadatas
+          });
+        } else {
+          this.setState({ cardMetadatas: [], displayedCardMetadatas: [] });
+        }
       });
   }
 
@@ -79,6 +86,34 @@ class HomePage extends React.Component {
     }
   };
 
+  sortByEventDate() {
+    try {
+      fetch(process.env.REACT_APP_BACKEND_API + Endpoint.SORT_POSTS, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          sort_type: "eventDate"
+        })
+      });
+    } catch (error) {
+      alert("Sorting failed.");
+    }
+  }
+
+  sortByUploadDate() {
+    try {
+      fetch(process.env.REACT_APP_BACKEND_API + Endpoint.SORT_POSTS, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          sort_type: "uploadDate"
+        })
+      });
+    } catch (error) {
+      alert("Sorting failed.");
+    }
+  }
+
   render() {
     let cards = this.state.displayedCardMetadatas.map(metadata => (
       <HomepageCard {...metadata} />
@@ -97,6 +132,18 @@ class HomePage extends React.Component {
           />
           <Button onClick={this.onSearchButtonClick} variant="outline-primary">
             Search
+          </Button>
+        </Form>
+        <Form className="mb-2">
+          <Button
+            className="ml-2 mr-2"
+            onClick={this.sortByEventDate}
+            variant="outline-primary"
+          >
+            Sort By Event Date
+          </Button>
+          <Button onClick={this.sortByUploadDate} variant="outline-primary">
+            Sort By Upload Date
           </Button>
         </Form>
         <CardColumns>{cards}</CardColumns>
