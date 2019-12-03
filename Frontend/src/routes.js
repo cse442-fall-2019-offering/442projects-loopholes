@@ -2,6 +2,7 @@ import NavigationBar from "./components/navigationBar.js";
 import HomePage from "./components/homepage.js";
 import CreatePage from "./components/createpage.js";
 import UploadPage from "./components/uploadpage.js";
+import TemplatePage from "./components/templateGenerator.js";
 
 const routes = [
   {
@@ -19,6 +20,10 @@ const routes = [
       {
         path: "/CSE442-542/2019-Fall/cse-442i/upload",
         component: UploadPage
+      },
+      {
+        path: "/CSE442-542/2019-Fall/cse-442i/template",
+        component: TemplatePage
       }
     ]
   }
