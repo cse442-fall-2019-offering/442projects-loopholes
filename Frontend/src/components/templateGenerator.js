@@ -1,9 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { Component, useState, useRef } from "react";
 import ImageUploader from "../firebase/ImageUploader";
 import { Button, Modal } from "react-bootstrap";
 import "filepond/dist/filepond.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import domtoimage from "dom-to-image-more";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
 
 //link - /CSE442-542/2019-Fall/cse-442i/template
 export default function TemplateGenerator() {
@@ -14,6 +16,11 @@ export default function TemplateGenerator() {
   const [topText, setTopText] = useState("");
   const [bottomText, setBottomText] = useState("");
   const [isMemeGenerated, setIsMemeGenerated] = useState(false);
+  const [eventTitle, setEventTitle] = useState("");
+  const [eventDate, setEventDate] = useState("");
+  const [eventTime, setEventTime] = useState("");
+  const [eventLocation, setEventLocation] = useState("");
+  const [validated, setValidated] = useState(false);
 
   let contentContainerRef = useRef(null);
 
@@ -44,6 +51,21 @@ export default function TemplateGenerator() {
     }
     return new File([u8arr], filename, { type: mime });
   }
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+    if (form.checkValidity() === true) {
+      console.log("We are uploading!");
+      handlePosterGeneration();
+    }
+  };
+
   function handlePosterGeneration() {
     domtoimage.toPng(contentContainerRef.current).then(dataUrl => {
       let td = new Date();
@@ -56,7 +78,11 @@ export default function TemplateGenerator() {
       let filename = yr + mon + day + hr + min + sec;
       let sender = new ImageUploader(
         dataURLtoFile(dataUrl, filename),
-        filename
+        filename,
+        eventTitle,
+        eventDate,
+        eventTitle,
+        eventLocation
       );
       sender.sendImageToFirebaseStorage();
     });
@@ -81,6 +107,69 @@ export default function TemplateGenerator() {
       />
 
       <input type="file" accept=".jpg, .jpeg, .png" onChange={uploadImage} />
+
+      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form.Row>
+          <Form.Group as={Col} md="4" controlId="validationCustom01">
+            <Form.Label>Title</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              placeholder="Enter Title"
+              value={eventTitle}
+              onChange={e => setEventTitle(e.target.value)}
+            />
+            <Form.Control.Feedback type="invalid">
+              You must enter a title.
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="4" controlId="validationCustom02">
+            <Form.Label>Date</Form.Label>
+            <Form.Control
+              required
+              type="date"
+              placeholder="Pick a date"
+              defaultValue="2019-12-03"
+              value={eventDate}
+              min="2019-12-03"
+              onChange={e => setEventDate(e.target.value)}
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a valid date.
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group as={Col} md="4" controlId="validationCustom03">
+            <Form.Label>Start Time</Form.Label>
+            <Form.Control
+              type="time"
+              placeholder="3:00:00"
+              defaultValue=""
+              required
+              value={eventTime}
+              onChange={e => setEventTime(e.target.value)}
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a time.
+            </Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="4" controlId="validationCustom04">
+            <Form.Label>Location</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter location"
+              required
+              value={eventLocation}
+              onChange={e => setEventLocation(e.target.value)}
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a location.
+            </Form.Control.Feedback>
+          </Form.Group>
+        </Form.Row>
+        <Button type="submit">Upload</Button>
+      </Form>
 
       <button onClick={handlePosterGeneration}>Create post</button>
 
