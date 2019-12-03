@@ -81,7 +81,7 @@ export default function TemplateGenerator() {
         filename,
         eventTitle,
         eventDate,
-        eventTitle,
+        eventTime,
         eventLocation
       );
       sender.sendImageToFirebaseStorage();
